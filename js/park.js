@@ -17,6 +17,14 @@ console.log("cart length", cart.length);
 
 function showCart() {
     cartUlRef.innerHTML = "";
+            // logic for no tickets paragraph
+if (cart.length === 0) {
+    document.getElementById("no-ticket").style.display = "block";
+    
+    } else {
+    document.getElementById("no-ticket").style.display = "none";
+}
+    
     for (let i = 0; i < cart.length; i++) {
         cartUlRef.innerHTML += "<li>" + cart[i] + "</li>";
     }
@@ -56,10 +64,3 @@ removeBtnRef.onclick = removeItemFromCart;
 
 console.log(ticketUlRef.length, cartUlRef.length, cart.length)
 
-    // logic for no tickets paragraph
-if (cart.length = 0) {
-    document.getElementById("no-ticket").style.display = "none";
-    
-    } else {
-    document.getElementById("no-ticket").style.display = "block";
-}
