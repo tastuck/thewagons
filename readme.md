@@ -31,3 +31,5 @@ We used a basic nav with a background-color of #7bbdd2.
 Settings and subheadings have the font color #74a993. All paragraph and list text are #185c71. This color as well as the nav color are used again in the buttons. Elements have set margins to allow for easy reading for users.
 
 ### Members & Responsibilities
+
+The members in our group 'The Wagons' are Taniya Tucker, Julianna Eyster, Elizabeth Ty, and Chandler Harris. Each member had a different role and responsibility during this project. For starters, Taniya is the President and the Analyst, she was responsible for the Restaurant Menu page. Next, Juliana is the Designer and was responsible for the Amusement Park page. Them, Elizabeth is the Architect and was responsible for the Flower Shop page. Lastly, Chandler is the  Scrum Master and was responsible the Animal Shelter page. 
