@@ -8,7 +8,7 @@ communication, and assigning roles.
 
 ### Live Link
 
-[GitHub Link](https://github.com/tastuck/thewagons/restaurant.html)
+[GitHub Link](https://tastuck.github.io/thewagons/animals.html)
 
 ### Key Takeaways
 
