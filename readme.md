@@ -8,7 +8,7 @@ communication, and assigning roles.
 
 ### Live Link
 
-[GitHub Link](https://{username}.github.io/{reponame}/homework-2)
+[GitHub Link](https://github.com/tastuck/thewagons/restaurant.html)
 
 ### Key Takeaways
 
