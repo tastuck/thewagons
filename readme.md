@@ -2,7 +2,9 @@
 
 ### Project Summary
 
-Brief description of your what your project is about and why you chose that topic.
+This project is a homework assignment with the purpose of 
+getting our team used to group GitHub repositories, team
+communication, and assigning roles. 
 
 ### Live Link
 
@@ -10,19 +12,18 @@ Brief description of your what your project is about and why you chose that topi
 
 ### Key Takeaways
 
-Understanding of why we are doing this project
 
 ### Core Webpages
 
-**Restaurant Menu:**
+**Restaurant Menu:** This page lets customers order food online, like hamburgers, cheeseburgers, fries, and onion rings. Customers can click the **+** button to add the food they would like to order to their cart, while clicking the **-** buttons removes the most recent item. If there is nothing added into their cart, a message with *No items in cart* will appear.
 
-**Online Bookstore:**
+**Online Bookstore:** This virtual bookstore allows users to browse and purchase the following books: Hop on Pop, Fox in Socks, The Cat in the Hat, and A Fly Went By. When a customer is ready to add a book to their cart, they can click on the **+** button. If they would like to remove a book they can click the **-** button. If the cart is empty a message reading *No books in cart* will appear. 
 
-**Flower Shop:** This page is designed for online flower purchases. Users can order flowers like Roses, Tulips, Daisys, and Lilys but clicking a **+** button to add their desired flower to their cart. If a user decides they no longer want a flower, they have the ability to remove it by clicking a **-** button. If there are no items in the users cart, the text with _"No flowers in cart"_ will appear.
+**Flower Shop:** This page is designed for online flower purchases. Users can order flowers like Roses, Tulips, Daisys, and Lilys but clicking a **+** button to add their desired flower to their cart. If a user decides they no longer want a flower, they have the ability to remove it by clicking a **-** button. If there are no items in the users cart, the text with *"No flowers in cart"* will appear.
 
-**Amusement Park:** A page for amusement park visitors to purchase entry passes for different age groups from Senior, Adult, Child, and Student. Visitors can add tickets by clicking on the **+** button and remove the most recent ticket added by clicking the **-** button. If there are no tickets in the cart, a message is displays saying _"No tickets in cart"_ will appear.
+**Amusement Park:** A page for amusement park visitors to purchase entry passes for different age groups from Senior, Adult, Child, and Student. Visitors can add tickets by clicking on the **+** button and remove the most recent ticket added by clicking the **-** button. If there are no tickets in the cart, a message displays saying *"No tickets in cart"*. 
 
-**Animal Shelter:**
+**Animal Shelter:** This page is for future pet owners to browse through the available pet types such as, Dog, Cat, Rabbit, and Foxes. Once they choose the animal they are most interested in, they may click the **+** button to add the animal to their cart. Additionally, they can click the **-** button to remove the animal. If there are no animals in their cart, a message notifies the user that there are *"No pets in cart"*. 
 
 ### Design Choices
 
@@ -30,5 +31,3 @@ We used a basic nav with a background-color of #7bbdd2.
 Settings and subheadings have the font color #74a993. All paragraph and list text are #185c71. This color as well as the nav color are used again in the buttons. Elements have set margins to allow for easy reading for users.
 
 ### Members & Responsibilities
-
-List all members, their roles, and their scenario titles
