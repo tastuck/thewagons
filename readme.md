@@ -32,4 +32,4 @@ Settings and subheadings have the font color #74a993. All paragraph and list tex
 
 ### Members & Responsibilities
 
-The members in our group 'The Wagons' are Taniya Tucker, Julianna Eyster, Elizabeth Ty, and Chandler Harris. Each member had a different role and responsibility during this project. For starters, Taniya is the President and the Analyst, she was responsible for the Restaurant Menu page. Next, Juliana is the Designer and was responsible for the Amusement Park page. Them, Elizabeth is the Architect and was responsible for the Flower Shop page. Lastly, Chandler is the  Scrum Master and was responsible the Animal Shelter page. 
+The members in our group 'The Wagons' are Taniya Tucker, Julianna Eyster, Elizabeth Ty, and Chandler Harris. Each member had a different role and responsibility during this project. For starters, Taniya is the President and the Analyst, she was responsible for the Restaurant Menu page. Next, Juliana is the Designer and was responsible for the Amusement Park page. Then, Elizabeth is the Architect and was responsible for the Flower Shop page. Lastly, Chandler is the  Scrum Master and was responsible for the Animal Shelter page. 
