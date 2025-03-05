@@ -2,7 +2,9 @@
 
 ### Project Summary
 
-Brief description of your what your project is about and why you chose that topic.
+This project is a homework assignment with the purpose of 
+getting our team used to group GitHub repositories, team
+communication, and assigning roles. 
 
 ### Live Link
 
@@ -10,7 +12,6 @@ Brief description of your what your project is about and why you chose that topi
 
 ### Key Takeaways
 
-Understanding of why we are doing this project
 
 ### Core Webpages
 
@@ -30,5 +31,3 @@ We used a basic nav with a background-color of #7bbdd2.
 Settings and subheadings have the font color #74a993. All paragraph and list text are #185c71. This color as well as the nav color are used again in the buttons. Elements have set margins to allow for easy reading for users.
 
 ### Members & Responsibilities
-
-List all members, their roles, and their scenario titles
