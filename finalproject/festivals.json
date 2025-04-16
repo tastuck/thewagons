@@ -1,0 +1,205 @@
+[
+  {
+    "festival": "Coachella 2017",
+    "stages": [
+      {
+        "name": "Coachella Stage",
+        "img": "image here"
+      },
+      {
+        "name": "Outdoor Theatre",
+        "img": "image here"
+      },
+      {
+        "name": "Mojave",
+        "img": "image here"
+      },
+      {
+        "name": "Gobi",
+        "img": "image here"
+      },
+      {
+        "name": "Sahara",
+        "img": "image here"
+      },
+      {
+        "name": "Sonora",
+        "img": "image here"
+      },
+      {
+        "name": "Yuma",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Rock in Rio 2017",
+    "stages": [
+      {
+        "name": "Palco Mundo",
+        "img": "image here"
+      },
+      {
+        "name": "Palco Sunset",
+        "img": "image here"
+      },
+      {
+        "name": "Electronica",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Tomorrowland 2024",
+    "stages": [
+      {
+        "name": "Life",
+        "img": "image here"
+      },
+      {
+        "name": "Core",
+        "img": "image here"
+      },
+      {
+        "name": "Planaxis",
+        "img": "image here"
+      },
+      {
+        "name": "Freedom Stage",
+        "img": "image here"
+      },
+      {
+        "name": "Crystal Garden",
+        "img": "image here"
+      },
+      {
+        "name": "Melodia",
+        "img": "image here"
+      },
+      {
+        "name": "Atmosphere",
+        "img": "image here"
+      },
+      {
+        "name": "House of Fortune",
+        "img": "image here"
+      },
+      {
+        "name": "The Library",
+        "img": "image here"
+      },
+      {
+        "name": "The Rose Garden",
+        "img": "image here"
+      },
+      {
+        "name": "Elixir",
+        "img": "image here"
+      },
+      {
+        "name": "The Rave Cave",
+        "img": "image here"
+      },
+      {
+        "name": "Rise",
+        "img": "image here"
+      },
+      {
+        "name": "Cage",
+        "img": "image here"
+      },
+      {
+        "name": "Portal to Paradise",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Lollapalooza 2021",
+    "stages": [
+      {
+        "name": "Budlight Selzer",
+        "img": "image here"
+      },
+      {
+        "name": "Tito's Handmade Vodka",
+        "img": "image here"
+      },
+      {
+        "name": "Grove",
+        "img": "image here"
+      },
+      {
+        "name": "BMI",
+        "img": "image here"
+      },
+      {
+        "name": "Perry's",
+        "img": "image here"
+      },
+      {
+        "name": "Lakeshore",
+        "img": "image here"
+      },
+      {
+        "name": "T-Mobile",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Dreamville 2025",
+    "stages": [
+      {
+        "name": "Rise",
+        "img": "image here"
+      },
+      {
+        "name": "Shine",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Camp Flog Gnaw 2014",
+    "stages": [
+      {
+        "name": "Main Stage",
+        "img": "image here"
+      },
+      {
+        "name": "Odd Future Stage",
+        "img": "image here"
+      }
+    ]
+  },
+  {
+    "festival": "Desert Daze 2022",
+    "stages": [
+      {
+        "name": "The Moon",
+        "img": "image here"
+      },
+      {
+        "name": "The Block",
+        "img": "image here"
+      },
+      {
+        "name": "The Beach",
+        "img": "image here"
+      },
+      {
+        "name": "The Sanctuary",
+        "img": "image here"
+      },
+      {
+        "name": "The Outer Space",
+        "img": "image here"
+      }
+    ]
+  }
+]
+
+
+
+
