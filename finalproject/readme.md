@@ -24,4 +24,4 @@ Describe your local storage data structure with rationale.
 
 ### Members & Responsibilities
 
-List all members, their roles, and their planned contributions to the project
+The members of this group are Taniya (The President and Analyst), Elizabeth (The Architect), Juliana (The Designer), and Chandler (The Scrum Master). 
