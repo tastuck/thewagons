@@ -24,4 +24,4 @@ Describe your local storage data structure with rationale.
 
 ### Members & Responsibilities
 
-The members of this group are Taniya (The President and Analyst), Elizabeth (The Architect), Juliana (The Designer), and Chandler (The Scrum Master). 
+The members of this group are Taniya (The President and Analyst), Elizabeth (The Architect), Juliana (The Designer), and Chandler (The Scrum Master). Each member is responsible for two pages, which will be about two different music festivals, except for Elizabeth, who is responsible for the home page and one page about a music festival. Taniya's music festivals are Camp Flog Gnaw and Desert Daze, Elizabeth's music festivals are Coachella, Juliana's music festivals are Rock in Rio and Tomorrowland, and Chandler's music festivals are Lollapalooza and Dreamville.  
