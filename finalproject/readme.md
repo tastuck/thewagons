@@ -13,8 +13,18 @@ Brief description of your what your project is about and why you chose that topi
 What have you learned or practiced during this semester that aided in the completion of your project.
 
 ### Core Webpages
+**Home Page:** This will be the main landing point for users, featuring highlights from each festival and trending artists. It will include direct links to each festival page, making navigation simple and efficient. Lastly, the home page may feature a quick access button to the favorites page allowing users to revisit their saved interests quickly.
 
-List core webpages and briefly describe the page of them
+**Festival Pages:**
+- Cochella (2017)
+- Rock in Rio (2011)
+- Tomorrowland (2024)
+- Lollapalooza (2021)
+- Dreamville (2025)
+- Desert Daze (0000) 
+- Camp Flog Gnaw (0000)
+
+Each page will feature detailed information about each festival including, artist lineups, maps, picture galleries, and stage information. Users will be have the option to favorite specific festivals, stages, or images for easy access later. 
 
 ### Design Choices & Local Storage Design
 
