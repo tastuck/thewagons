@@ -11,7 +11,7 @@ resonates with them.
 
 ### Live Link
 
-[Home Page](https://{username}.github.io/{reponame}/final)
+[Home Page](https://tastuck.github.io/thewagons/finalproject/)
 
 ### Key Takeaways
 
