@@ -4,9 +4,13 @@ function getFestival()
     let currentIndex= 0;
 
     fetch("../festivals.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error("Network error");
+            return response.json();
+        })
+
         .then(data => {
-            const festival = data.find("Desert Daze 2022");
+            const festival = data.festival === "Desert Daze 2022" ? data : null;
             if(!festival) {
                 document.getElementById("stageName").textContent = "festival not found";
                 return;
