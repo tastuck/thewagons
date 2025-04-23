@@ -1,18 +1,21 @@
+
+
 function getFestival()
 {
     let stages = [];
     let currentIndex= 0;
 
-    fetch("../festivals.json")
+    fetch("festivals.json")
+
         .then(response => {
             if (!response.ok) throw new Error("Network error");
             return response.json();
         })
 
         .then(data => {
-            const festival = data.festival === "Desert Daze 2022" ? data : null;
-            if(!festival) {
-                document.getElementById("stageName").textContent = "festival not found";
+            const festival = data.find(f => f.festival === "Desert Daze 2022");
+            if (!festival) {
+                document.getElementById("stageName").textContent = "Festival not found";
                 return;
             }
 
@@ -20,7 +23,8 @@ function getFestival()
             showStage(currentIndex);
         });
 
-        function showStage(i) {
+
+    function showStage(i) {
             const stage = stages[i];
             document.getElementById("stageName").textContent = stage.name;
             document.getElementById("stageImg").src = stage.img || "img/placeholder.jpg";
@@ -42,3 +46,4 @@ function getFestival()
 }
 
 getFestival();
+
