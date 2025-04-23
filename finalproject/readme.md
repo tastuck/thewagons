@@ -1,4 +1,4 @@
-## Group Events
+# The Wagons
 
 ### Project Summary
 
