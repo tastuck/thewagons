@@ -4,31 +4,31 @@
     "stages": [
       {
         "name": "Coachella Stage",
-        "img": "image here"
+        "img": "coachellaImages/coachellastage.png"
       },
       {
         "name": "Outdoor Theatre",
-        "img": "image here"
+        "img": "coachellaImages/CoachellaOutdoorTheater.jpg"
       },
       {
         "name": "Mojave",
-        "img": "image here"
+        "img": "coachellaImages/CoachellaMojave.jpg"
       },
       {
         "name": "Gobi",
-        "img": "image here"
+        "img": "coachellaImages/coachellagobi.jpg"
       },
       {
         "name": "Sahara",
-        "img": "image here"
+        "img": "coachellaImages/CoachellaSaharaTent.jpeg"
       },
       {
         "name": "Sonora",
-        "img": "image here"
+        "img": "coachellaImages/coachellasonora.png"
       },
       {
         "name": "Yuma",
-        "img": "image here"
+        "img": "coachellaImages/yumatent.png"
       }
     ]
   },

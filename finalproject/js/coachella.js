@@ -1,5 +1,5 @@
 function getFestival() {
-    fetch("festivals.json")
+  fetch("festivals.json")
     .then((response) => {
       if (!response.ok) throw new Error("Network error");
       return response.json();
@@ -73,7 +73,7 @@ let savedFavorites = localStorage.getItem("favorites");
       stagesContainer.appendChild(stageCard);
     }
   })
-  
+
   .catch((error) => {
       console.error("Error:", error);
     });
