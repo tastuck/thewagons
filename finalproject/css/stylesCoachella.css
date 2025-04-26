@@ -1,0 +1,48 @@
+body {
+    height: 100%;
+    font-family: sans-serif;
+}
+.banner {
+    height: 300px; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 130px; 
+}
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+.aboutSection{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.stagesHeader {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.stagesContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+.stageCards {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.stageCards img {
+    width: 100%;
+    height: 200px;
+}
+
+.favoriteButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

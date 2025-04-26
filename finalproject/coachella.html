@@ -4,10 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coachella 2017</title>
+    <link rel="stylesheet" href="css/stylesCoachella.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Coachella 2017</h1>
+    <nav>
+        <a href="#Home">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn">Chandler</button>
+          <div class="dropdown-content">
+            <a href="#one">Lollapalooza</a>
+            <a href="#two">Dreamville</a>
+          </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Tanyia</button>
+            <div class="dropdown-content">
+              <a href="#three">Desert Daze</a>
+              <a href="#four">Camp Flog Gnaw</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Julianna</button>
+            <div class="dropdown-content">
+              <a href="#five">Rock in Rio</a>
+              <a href="#six">Tomorrowland</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Elizabeth</button>
+            <div class="dropdown-content">
+              <a href="#seven">Coachella</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Profile</button>
+            <div class="dropdown-content">
+              <a href="favorite.html">My favorites</a>
+              <a href="#">
+                <section id="content">
+                    <button id="logout">Logout</button>
+                </section>
+              </a>
+            </div>
+          </div>
+    </nav>
 
-<script src="js/coachella.js"></script>
+    <div class="banner">
+        <img src="images/coachellaimages/coachellabanner.jpg" alt="Coachella Banner">
+    </div>
+    <div class="aboutSection">
+        <h1>About</h1>
+        <t>Coachella (officially called the Coachella Valley Music and Arts Festival and sometimes known as Coachella Festival) is an annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is organized by Goldenvoice, a subsidiary of AEG Presents.
+          The event features musical artists from many genres of music, including rock, pop, indie, hip hop and electronic dance music, as well as art installations and sculptures. Across the grounds, several stages continuously host live music.</t>
+    </div>
+    
+    <div class="stagesHeader">
+        Stages
+    </div>
+    
+    <div id="stagesDisplay" class="stagesContainer">
+    </div>
+
+    <script src="js/coachella.js"></script>
 </body>
 </html>
