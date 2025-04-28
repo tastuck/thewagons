@@ -2,7 +2,10 @@ function showFavorites() {
   let favoritesBox = document.getElementById("favoritesDisplay");
   let savedFavorites = localStorage.getItem("favorites");
 
-  if (savedFavorites === null) {
+  console.log("favoritesBox:", favoritesBox);
+  console.log("savedFavorites:", savedFavorites);
+
+  if (!savedFavorites || savedFavorites === '[]') {
     favoritesBox.innerHTML = "<p>You have not added any favorites</p>";
     return;
   }
