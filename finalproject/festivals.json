@@ -54,63 +54,63 @@
     "stages": [
       {
         "name": "Life",
-        "img": "image here"
+        "img": "tomorrowImages/life.webp"
       },
       {
         "name": "Core",
-        "img": "image here"
+        "img": "tomorrowImages/core.webp"
       },
       {
         "name": "Planaxis",
-        "img": "image here"
+        "img": "tomorrowImages/planaxis.avif"
       },
       {
         "name": "Freedom Stage",
-        "img": "image here"
+        "img": "tomorrowImages/freedom.webp"
       },
       {
         "name": "Crystal Garden",
-        "img": "image here"
+        "img": "tomorrowImages/crystal.jpg"
       },
       {
         "name": "Melodia",
-        "img": "image here"
+        "img": "tomorrowImages/melodia.jpeg"
       },
       {
         "name": "Atmosphere",
-        "img": "image here"
+        "img": "tomorrowImages/atmosphere.jpg"
       },
       {
         "name": "House of Fortune",
-        "img": "image here"
+        "img": "tomorrowImages/house.jpg"
       },
       {
         "name": "The Library",
-        "img": "image here"
+        "img": "tomorrowImages/library.avif"
       },
       {
         "name": "The Rose Garden",
-        "img": "image here"
+        "img": "tomorrowImages/rose.webp"
       },
       {
         "name": "Elixir",
-        "img": "image here"
+        "img": "tomorrowImages/elixir.jpg"
       },
       {
         "name": "The Rave Cave",
-        "img": "image here"
+        "img": "tomorrowImages/rave.webp"
       },
       {
         "name": "Rise",
-        "img": "image here"
+        "img": "tomorrowImages/rise.webp"
       },
       {
         "name": "Cage",
-        "img": "image here"
+        "img": "tomorrowImages/cage.webp"
       },
       {
         "name": "Portal to Paradise",
-        "img": "image here"
+        "img": "tomorrowImages/portal.jpg"
       }
     ]
   },
@@ -199,7 +199,3 @@
     ]
   }
 ]
-
-
-
-

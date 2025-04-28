@@ -1,0 +1,33 @@
+.hero {
+  margin-top: 80px;
+  height: 500px;
+  background-image: url(../tomorrowImages/tomorrow-hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.about {
+  padding: 50px;
+}
+#stages {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+
+  img {
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+  }
+
+  button {
+    margin-top: 20px;
+    margin-bottom: 80px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
