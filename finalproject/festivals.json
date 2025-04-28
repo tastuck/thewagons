@@ -37,15 +37,15 @@
     "stages": [
       {
         "name": "Palco Mundo",
-        "img": "image here"
+        "img": "rioImages/palco.jpg"
       },
       {
         "name": "Palco Sunset",
-        "img": "image here"
+        "img": "rioImages/sunset.jpg"
       },
       {
         "name": "Electronica",
-        "img": "image here"
+        "img": "rioImages/electronica.jpg"
       }
     ]
   },

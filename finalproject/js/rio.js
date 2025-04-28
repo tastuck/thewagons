@@ -5,7 +5,7 @@ function getFestival() {
         return resp.json();
       })
       .then((data) => {
-        const festival = data.find((f) => f.festival === "Tomorrowland 2024");
+        const festival = data.find((f) => f.festival === "Rock in Rio 2017");
 
   
   const stagesContainer = document.getElementById("stages");
@@ -32,7 +32,7 @@ function getFestival() {
       favoriteBtn.addEventListener("click", () => {
   
   const favorite = {
-      festivalName: "Tomorrowland 2024",
+      festivalName: "Rock in Rio 2017",
       stageName: stage.name,
       stageImg: stage.img,
         };
@@ -69,7 +69,7 @@ function getFestival() {
       }
     })
   
-    
+   
   }
 
 getFestival();
