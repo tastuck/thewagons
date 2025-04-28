@@ -1,66 +1,76 @@
-
-
-async function getFestival() {
-    const festivalResp = await fetch(`festivals.json`);
-    const festivalData = await festivalResp.json();
-
-    let stages = [];
-
-    for (let i = 0; i < festivalData.length; i++) {
-        const currentFestival = festivalData[i];
-
-        if (currentFestival.festival === "Tomorrowland 2024") {
-            stages = currentFestival.stages;
-        }
-    }
-
-    const stagesRef = document.querySelector("#stages");
-
-    for (let i = 0; i < stages.length; i++) {
-        const currentStage = stages[i];
-        stagesRef.innerHTML += `<div><h2>${currentStage.name}</h2><img src="${currentStage.img}" ><button id=favoriteButton>Favorite</button></div>`;
+function getFestival() {
+    fetch("festivals.json")
+      .then((resp) => {
         
-    const favoriteBtn = document.querySelector("#favoriteButton");
-    favoriteBtn.addEventListener("click", () => {
-       const favorite = {
-        festivalName: "Tomorrowland 2024",
-        stageName: currentStage.name,
-        stageImg: currentStage.img,
-          }; 
+        return resp.json();
+      })
+      .then((data) => {
+        const festival = data.find((f) => f.festival === "Tomorrowland 2024");
 
-        let savedFavorites = localStorage.getItem("favorites");
-        
-        if (savedFavorites !== null) {
-            favorites = JSON.parse(savedFavorites);
-            }
-        if(favoriteBtn.textContent === "Favorite") {
-            let favorites = [];
-            favoriteBtn.textContent = "Unfavorite";
-            favorites.push(favorite);
+  
+  const stagesContainer = document.getElementById("stages");
+  
+  for (let i = 0; i < festival.stages.length; i++) {
+  const stage = festival.stages[i];
+  
+  const stageCard = document.createElement("div");
+    stageCard.className = "stageCards";
+  
+
+  const stageImg = document.createElement("img");
+      stageImg.src = stage.img;
+      stageCard.appendChild(stageImg);
+  
+  const stageName = document.createElement("h3");
+    stageName.textContent = stage.name;
+    stageCard.appendChild(stageName);
+  
+  const favoriteBtn = document.createElement("button");
+      favoriteBtn.textContent = "Favorite";
+      favoriteBtn.className = "favoriteButton";
+      favoriteBtn.addEventListener("click", () => {
+  
+  const favorite = {
+      festivalName: "Tomorrowland 2024",
+      stageName: stage.name,
+      stageImg: stage.img,
+        };
+  
+  let savedFavorites = localStorage.getItem("favorites");
+  
+    let favorites = [];
+  
+      if (savedFavorites !== null) {
+      favorites = JSON.parse(savedFavorites);
+      }
+  
+      if (favoriteBtn.textContent === "Favorite") {
+      favoriteBtn.textContent = "Unfavorite";
+      favorites.push(favorite);
+  
         } else {
-            favoriteBtn.textContent = "Favorite";
+        favoriteBtn.textContent = "Favorite";
+              
+      let newFavorites = [];
+        for (let j = 0; j < favorites.length; j++) {
+          if (favorites[j].stageName !== stage.name) {
+            newFavorites.push(favorites[j]);
+          }
         }
-
-
-        console.log(favoriteBtn.textContent, favorite)
+      favorites = newFavorites;
+    }
+  
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      });
+        stageCard.appendChild(favoriteBtn);
+  
+        stagesContainer.appendChild(stageCard);
+      }
     })
-    
-    
-
-    
-
-
-// favoriteBtn.onclick =  localStorage.setItem("favorites", JSON.stringify(favorite));
-
-// console.log("favorites", favorite)
-}
-
-}
-
-
-
-
-
-
+  
+    .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 
 getFestival();

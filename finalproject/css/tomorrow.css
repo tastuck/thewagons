@@ -7,7 +7,11 @@
   background-position: center;
 }
 .about {
-  padding: 50px;
+  padding: 100px;
+
+  p {
+    padding: 0px 50px;
+  }
 }
 #stages {
   display: grid;
