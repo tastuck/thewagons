@@ -1,23 +1,29 @@
+console.log("is app running?")
+
+
+
 // Reference variables
 const loginFormRef = document.querySelector("#login");
-const usernameRef = document.querySelector("#logout");
-const passwordRef = document.querySelector("a[href=\"favorite.html\"]");
-const favoriteButtonsRef = document.querySelector(".favorite-btn");
+const logoutBtnRef = document.querySelector("#logout");
+const favoriteLinkRef = document.querySelector("a[href=\"favorite.html\"]");
+const favoriteBtnRef = document.querySelector(".favorite-btn");
 
 //logged in state to meet localStorage requirement
 function setLoggedInState() {
-    loginForm.style.display = "none";
-    logoutBtn.style.display = "block";
-    myFavoritesLink.style.display = "block";
-    favoriteButtons.forEach(btn => btn.style.display = "inline-block");
+    //no log in form if already logged in
+    loginFormRef.style.display = "none";
+    logoutBtnRef.style.display = "block";
+    favoriteLinkRef.style.display = "block";
+    favoriteBtnRef.forEach(btn => btn.style.display = "inline-block");
     localStorage.setItem("loggedIn", "true");
 }
 //set logged out state, no favorites button, profile drop down only shows log in form.
 function setLoggedOutState() {
-    loginForm.style.display = "block";
-    logoutBtn.style.display = "none";
-    myFavoritesLink.style.display = "none";
-    favoriteButtons.forEach(btn => btn.style.display = "none");
+    //log in form since not logged in
+    loginFormRef.style.display = "block";
+    logoutBtnRef.style.display = "none";
+    favoriteLinkRef.style.display = "none";
+    favoriteBtnRef.forEach(btn => btn.style.display = "none");
     localStorage.setItem("loggedIn", "false");
 }
 
@@ -32,13 +38,13 @@ if (localStorage.getItem("loggedIn") === "true") {
 }
 
 // log in on submit form, log out on click log out. sets the states
-loginForm.addEventListener("submit", function (e) {
+loginFormRef.addEventListener("submit", function (e) {
     e.preventDefault();
     setLoggedInState();
 });
 
 // Handle logout
-logoutBtn.addEventListener("click", function () {
+logoutBtnRef.addEventListener("click", function () {
     setLoggedOutState();
 });
 
