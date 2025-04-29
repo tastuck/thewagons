@@ -1,78 +1,45 @@
 // Reference variables
 const loginFormRef = document.querySelector("#login");
-const usernameRef = document.querySelector("#username");
-const passwordRef = document.querySelector("#password");
+const usernameRef = document.querySelector("#logout");
+const passwordRef = document.querySelector("a[href=\"favorite.html\"]");
+const favoriteButtonsRef = document.querySelector(".favorite-btn");
 
-const contentRef = document.querySelector("#content");
-const logoutRef = document.querySelector("#logout");
+//logged in state to meet localStorage requirement
+function setLoggedInState() {
+    loginForm.style.display = "none";
+    logoutBtn.style.display = "block";
+    myFavoritesLink.style.display = "block";
+    favoriteButtons.forEach(btn => btn.style.display = "inline-block");
+    localStorage.setItem("loggedIn", "true");
+}
+//set logged out state, no favorites button, profile drop down only shows log in form.
+function setLoggedOutState() {
+    loginForm.style.display = "block";
+    logoutBtn.style.display = "none";
+    myFavoritesLink.style.display = "none";
+    favoriteButtons.forEach(btn => btn.style.display = "none");
+    localStorage.setItem("loggedIn", "false");
+}
 
-let activeUser = JSON.parse(localStorage.getItem("activeUser") || "{}");
+// if local storage logged in = true, set state as logged
+//in. if not, set as logged out state.
+if (localStorage.getItem("loggedIn") === "true") {
+    setLoggedInState();
+} else {
+    setLoggedOutState();
 
-function loginUser(e) {
+    console.log(localStorage.getItem("loggedIn"));
+}
+
+// log in on submit form, log out on click log out. sets the states
+loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const usernameValue = usernameRef.value;
-    const passwordValue = passwordRef.value;
+    setLoggedInState();
+});
+
+// Handle logout
+logoutBtn.addEventListener("click", function () {
+    setLoggedOutState();
+});
 
 
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-    let userFound = false;
-    let correctPassword = false;
-
-    for (let i = 0; i < users.length; i++) {
-        const currentUser = users[i];
-        if (
-            currentUser.username === usernameValue) {
-            userFound = true;
-
-            if (currentUser.password === passwordValue) {
-                correctPassword = true;
-            }
-        }
-    }
-
-    //you are not on the list
-    if (userFound === false) {
-    //make user
-        users.push({username: usernameValue, password: passwordValue});
-        localStorage.setItem("users", JSON.stringify(users));
-        alert("New User");
-
-        activeUser = { username: usernameValue};
-        localStorage.setItem("activeUser", JSON.stringify(activeUser));
-    }
-    //you put the wrong password
-    else if (correctPassword === false) {
-        alert("Incorrect Password");
-    }
-    //you are logged in
-    else {
-        alert("You are logged in");
-
-        activeUser = { username: usernameValue};
-        localStorage.setItem("activeUser", JSON.stringify(activeUser));
-    }
-
-    toggleLogin();
-    
-}
-
-function toggleLogin() {
-    if (!activeUser.username) {
-        loginFormRef.style.display = "block";
-        contentRef.style.display = "none";
-    } else {
-        loginFormRef.style.display = "none";
-        contentRef.style.display = "block";
-    }
-}
-
-function logoutUser() {
-    localStorage.removeItem("activeUser");
-    activeUser = {};
-
-    toggleLogin();
-}
-loginFormRef.onsubmit = loginUser;
-logoutRef.onclick = logoutUser;
-toggleLogin();

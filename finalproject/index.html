@@ -5,111 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festival Archive</title>
     <link rel="stylesheet" href="css/styles.css">
-
+</head>
 <body>
-  <nav>
+<nav>
     <a href="index.html">Home</a>
     <div class="dropdown">
-      <button class="dropbtn">Chandler</button>
-      <div class="dropdown-content">
-        <a href="lollapooloza.html">Lollapalooza</a>
-        <a href="dreamville.html">Dreamville</a>
-      </div>
+        <button class="dropbtn">Chandler</button>
+        <div class="dropdown-content">
+            <a href="lollapooloza.html">Lollapalooza</a>
+            <a href="dreamville.html">Dreamville</a>
+        </div>
     </div>
     <div class="dropdown">
         <button class="dropbtn">Tanyia</button>
         <div class="dropdown-content">
-          <a href="desertdaze.html">Desert Daze</a>
-          <a href="#">Camp Flog Gnaw</a>
+            <a href="desertdaze.html">Desert Daze</a>
+            <a href="#">Camp Flog Gnaw</a>
         </div>
-      </div>
-      <div class="dropdown">
+    </div>
+    <div class="dropdown">
         <button class="dropbtn">Julianna</button>
         <div class="dropdown-content">
-          <a href="rio.html">Rock in Rio</a>
-          <a href="tomorrow.html">Tomorrowland</a>
+            <a href="rio.html">Rock in Rio</a>
+            <a href="tomorrow.html">Tomorrowland</a>
         </div>
-      </div>
-      <div class="dropdown">
+    </div>
+    <div class="dropdown">
         <button class="dropbtn">Elizabeth</button>
         <div class="dropdown-content">
-          <a href="coachella.html">Coachella</a>
+            <a href="coachella.html">Coachella</a>
         </div>
-      </div>
-      <div class="dropdown">
+    </div>
+    <div class="dropdown">
         <button class="dropbtn">Profile</button>
         <div class="dropdown-content">
-          <a href="favorite.html">My favorites</a>
-          <a href="#">
+            <a href="favorite.html">My favorites</a>
+
+            <!-- removed the <a> tag -->
             <section id="content">
                 <button id="logout">Logout</button>
-            </section>    <form action="#" id="login">
-              <div>
-                  <label for="username">Username</label>
-                  <input type="text" name="username" id="username">
-              </div>
-      
-              <div>
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password">
-              </div>
-      
-              <div>
-                  <input type="submit" value="Login">
-              </div>
-          </form>
-          </a>
+            </section>
+
+            <!-- log in form is its own block, idk how to make it work with the <a> tag
+             and without making major changes -->
+            <form action="#" id="login">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+
+                <div>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
 </nav>
-    
-    <div class="banner"></div>
-    
-    <div class="festivalGrid">
-      <div class="festivalCards">
-          <a href="coachella.html"> 
-              <img src="indexImages/coachella.png" alt="Coachella">
-              <h3>Coachella (2017)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="rio.html"> 
-              <img src="indexImages/rockinrio.png" alt="Rock in Rio">
-              <h3>Rock in Rio (2011)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="tomorrow.html">
-              <img src="indexImages/tomorrowland.png" alt="Tomorrowland">
-              <h3>Tomorrowland (2024)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="lollapalooza.html">
-              <img src="indexImages/lollapalooza.png" alt="Lollapalooza">
-              <h3>Lollapalooza (2021)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="dreamville.html">
-              <img src="indexImages/dreamville.png" alt="Dreamville">
-              <h3>Dreamville (2025)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="desertdaze.html"> 
-              <img src="indexImages/desertdaze.png" alt="Desert Daze">
-              <h3>Desert Daze (2022)</h3>
-          </a>
-      </div>
-      <div class="festivalCards">
-          <a href="campfloggnaw.html"> 
-              <img src="indexImages/campfloggnaw.png" alt="Camp Flog Gnaw">
-              <h3>Camp Flog Gnaw (2014)</h3>
-          </a>
-      </div>
-  </div>
-  <script src="js/app.js"></script>
-  <script src="js/app.js"></script>
+
+<div class="banner"></div>
+
+<div class="festivalGrid">
+    <div class="festivalCards">
+        <a href="coachella.html">
+            <img src="indexImages/coachella.png" alt="Coachella">
+            <h3>Coachella (2017)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="rio.html">
+            <img src="indexImages/rockinrio.png" alt="Rock in Rio">
+            <h3>Rock in Rio (2011)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="tomorrow.html">
+            <img src="indexImages/tomorrowland.png" alt="Tomorrowland">
+            <h3>Tomorrowland (2024)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="lollapalooza.html">
+            <img src="indexImages/lollapalooza.png" alt="Lollapalooza">
+            <h3>Lollapalooza (2021)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="dreamville.html">
+            <img src="indexImages/dreamville.png" alt="Dreamville">
+            <h3>Dreamville (2025)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="desertdaze.html">
+            <img src="indexImages/desertdaze.png" alt="Desert Daze">
+            <h3>Desert Daze (2022)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+
+    <div class="festivalCards">
+        <a href="campfloggnaw.html">
+            <img src="indexImages/campfloggnaw.png" alt="Camp Flog Gnaw">
+            <h3>Camp Flog Gnaw (2014)</h3>
+        </a>
+        <!-- favorite button for logged in state -->
+        <button class="favorite-btn">Favorite</button>
+    </div>
+</div>
+
+<!-- we only need one script tag -->
+<script src="js/app.js"></script>
 </body>
 </html>
+
+

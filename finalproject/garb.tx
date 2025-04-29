@@ -1,0 +1,212 @@
+app garb
+
+//const contentRef = document.querySelector("#content");
+//const logoutRef = document.querySelector("#logout");
+//let activeUser = JSON.parse(localStorage.getItem("activeUser") || "{}");
+// function loginUser(e) {
+//     e.preventDefault();
+//     const usernameValue = usernameRef.value;
+//     const passwordValue = passwordRef.value;
+//
+//
+//     const users = JSON.parse(localStorage.getItem("users") || "[]");
+//
+//     let userFound = false;
+//     let correctPassword = false;
+//
+//     for (let i = 0; i < users.length; i++) {
+//         const currentUser = users[i];
+//         if (
+//             currentUser.username === usernameValue) {
+//             userFound = true;
+//
+//             if (currentUser.password === passwordValue) {
+//                 correctPassword = true;
+//             }
+//         }
+//     }
+//
+//     //you are not on the list
+//     if (userFound === false) {
+//     //make user
+//         users.push({username: usernameValue, password: passwordValue});
+//         localStorage.setItem("users", JSON.stringify(users));
+//         alert("New User");
+//
+//         activeUser = { username: usernameValue};
+//         localStorage.setItem("activeUser", JSON.stringify(activeUser));
+//     }
+//     //you put the wrong password
+//     else if (correctPassword === false) {
+//         alert("Incorrect Password");
+//     }
+//     //you are logged in
+//     else {
+//         alert("You are logged in");
+//
+//         activeUser = { username: usernameValue};
+//         localStorage.setItem("activeUser", JSON.stringify(activeUser));
+//     }
+//
+//     toggleLogin();
+//
+// }
+//
+// function toggleLogin() {
+//     if (!activeUser.username) {
+//         loginFormRef.style.display = "block";
+//         contentRef.style.display = "none";
+//     } else {
+//         loginFormRef.style.display = "none";
+//         contentRef.style.display = "block";
+//     }
+// }
+//
+// function logoutUser() {
+//     localStorage.removeItem("activeUser");
+//     activeUser = {};
+//
+//     toggleLogin();
+// }
+//
+// //this is the logic to connect that was missing!
+// function addFavorite(stageName) {
+//     const user = JSON.parse(localStorage.getItem("users") || "{}").username;
+//     if (!user) {
+//         alert("Please log in!! ");
+//         return;
+//     }
+//     //favs 4 user
+//     let allFavorites = JSON.parse(localStorage.getItem("favorites") || "{}");
+//     //user array?
+//     if (!allFavorites[user]) {
+//         allFavorites[user] = [];
+//     }
+//     //save 2 local storage
+//     localStorage.setItem("favorites", JSON.stringify(allFavorites));
+//
+//     alert("Added to Favorites!!")
+//
+// }
+// loginFormRef.onsubmit = loginUser;
+// logoutRef.onclick = logoutUser;
+// toggleLogin();
+
+index garb
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Archive</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Chandler</button>
+      <div class="dropdown-content">
+        <a href="lollapooloza.html">Lollapalooza</a>
+        <a href="dreamville.html">Dreamville</a>
+      </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Tanyia</button>
+        <div class="dropdown-content">
+          <a href="desertdaze.html">Desert Daze</a>
+          <a href="#">Camp Flog Gnaw</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Julianna</button>
+        <div class="dropdown-content">
+          <a href="rio.html">Rock in Rio</a>
+          <a href="tomorrow.html">Tomorrowland</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Elizabeth</button>
+        <div class="dropdown-content">
+          <a href="coachella.html">Coachella</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Profile</button>
+        <div class="dropdown-content">
+          <a href="favorite.html">My favorites</a>
+          <a href="#">
+            <section id="content">
+                <button id="logout">Logout</button>
+            </section>    <form action="#" id="login">
+              <div>
+                  <label for="username">Username</label>
+                  <input type="text" name="username" id="username">
+              </div>
+
+              <div>
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password">
+              </div>
+
+              <div>
+                  <input type="submit" value="Login">
+              </div>
+          </form>
+          </a>
+        </div>
+      </div>
+</nav>
+    <!--nav bar done-->
+  <!--next-->
+    <div class="banner"></div>
+
+    <div class="festivalGrid">
+      <div class="festivalCards">
+          <a href="coachella.html">
+              <img src="indexImages/coachella.png" alt="Coachella">
+              <h3>Coachella (2017)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="rio.html">
+              <img src="indexImages/rockinrio.png" alt="Rock in Rio">
+              <h3>Rock in Rio (2011)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="tomorrow.html">
+              <img src="indexImages/tomorrowland.png" alt="Tomorrowland">
+              <h3>Tomorrowland (2024)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="lollapalooza.html">
+              <img src="indexImages/lollapalooza.png" alt="Lollapalooza">
+              <h3>Lollapalooza (2021)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="dreamville.html">
+              <img src="indexImages/dreamville.png" alt="Dreamville">
+              <h3>Dreamville (2025)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="desertdaze.html">
+              <img src="indexImages/desertdaze.png" alt="Desert Daze">
+              <h3>Desert Daze (2022)</h3>
+          </a>
+      </div>
+      <div class="festivalCards">
+          <a href="campfloggnaw.html">
+              <img src="indexImages/campfloggnaw.png" alt="Camp Flog Gnaw">
+              <h3>Camp Flog Gnaw (2014)</h3>
+          </a>
+      </div>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
