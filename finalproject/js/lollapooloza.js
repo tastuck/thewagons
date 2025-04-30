@@ -5,9 +5,11 @@ function getFestival () {
         return resp.json();
     })
     .then((data)=>
-    {const festival = data.find((f)=> f.festival === "Lollapooloza 2021");
+    {const festival = data.find((f)=> f.festival === "Lollapalooza 2021");
 
         const stagesContainer = document.getElementById("stages");
+
+        console.log("AHHHHHHH:", data)
 
         for(let i = 0; i < festival.stages.length; i++) {
             const stage = festival.stages[i];
@@ -29,7 +31,7 @@ function getFestival () {
         favoriteBtn.addEventListener("click", () => {
 
             const favorite = {
-                festivalName: "Lollapooloza 2021",
+                festivalName: "Lollapalooza 2021",
                 stageName: stage.name,
                 stageImg: stage.img,
             };
