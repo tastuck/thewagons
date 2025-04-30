@@ -1,180 +1,206 @@
+// js/desertdaze.js
+
+document.addEventListener("DOMContentLoaded", getFestival);
+
 function getFestival() {
     let allStages = [];
     let stages = [];
     let currentIndex = 0;
 
     fetch("festivals.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Network error");
-            return response.json();
+        .then(resp => {
+            if (!resp.ok) throw new Error("Network error");
+            return resp.json();
         })
         .then(data => {
-            const festival = data.find(f => f.festival === "Desert Daze 2022");
-            if (!festival) {
-                document.getElementById("stageName").textContent = "Festival not found";
+            const fest = data.find(f => f.festival === "Desert Daze 2022");
+            if (!fest) {
+                document.getElementById("stageContainer").innerHTML =
+                    "<p>Festival not found</p>";
                 return;
             }
-
-            allStages = festival.stages;
+            allStages = fest.stages;
             setDay("Friday");
             document.querySelector('.dayBtn[data-day="Friday"]').classList.add("active");
-            updateFavoriteButtonVisibility();
 
+            // initial login state
             if (localStorage.getItem("loggedIn") === "true") {
                 setLoggedInState();
             } else {
                 setLoggedOutState();
             }
-
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById("stageContainer").innerHTML =
+                "<p>Error loading data</p>";
         });
 
+    // switch days
     function setDay(day) {
         stages = allStages
-            .map(stage => {
-                const dayData = stage.days?.find(d => d.day === day);
-                if (!dayData) return null;
-                return {
-                    name: stage.name,
-                    media: dayData.media || [],
-                    day: dayData.day,
-                    pictured: getPicturedText(stage.name, dayData.day)
-                };
+            .map(s => {
+                const d = s.days?.find(x => x.day === day);
+                return d ? {
+                    name: s.name,
+                    media: d.media || [],
+                    pictured: getCaption(s.name, day)
+                } : null;
             })
             .filter(Boolean);
 
         currentIndex = 0;
-
-        if (stages.length > 0) {
-            showStage(currentIndex);
+        if (stages.length) {
+            showStage(0);
         } else {
-            document.getElementById("stageName").textContent = "No stages for " + day;
-            document.getElementById("stageContainer").innerHTML = "";
+            document.getElementById("stageContainer").innerHTML =
+                `<p>No stages for ${day}</p>`;
         }
     }
 
-    function showStage(i) {
-        const stage = stages[i];
+    // render a stage
+    function showStage(idx) {
+        currentIndex = idx;
+        const st = stages[idx];
         const container = document.getElementById("stageContainer");
+        container.innerHTML = `<h2 id="stageName">${st.name}</h2>`;
 
-        container.innerHTML = `<h2 id="stageName">${stage.name}</h2>`;
-
-        // insert "Pictured: ..." if available
-        if (stage.pictured) {
-            const desc = document.createElement("p");
-            desc.className = "stage-description";
-            desc.textContent = `Pictured: ${stage.pictured}`;
-            container.appendChild(desc);
+        if (st.pictured) {
+            const p = document.createElement("p");
+            p.className = "stage-description";
+            p.textContent = `Pictured: ${st.pictured}`;
+            container.appendChild(p);
         }
 
-        const mediaDiv = document.createElement("div");
-        mediaDiv.className = "media-section";
+        const mediaSec = document.createElement("div");
+        mediaSec.className = "media-section";
+        mediaSec.appendChild(makeRow(st.media.filter(m => !m.endsWith(".mp4")), false));
+        mediaSec.appendChild(makeRow(st.media.filter(m => m.endsWith(".mp4")), true));
+        container.appendChild(mediaSec);
 
-        const images = stage.media.filter(file => !file.endsWith(".mp4"));
-        const videos = stage.media.filter(file => file.endsWith(".mp4"));
-
-        const imageRow = document.createElement("div");
-        imageRow.className = "media-row";
-        images.slice(0, 2).forEach(file => {
-            const wrapper = document.createElement("div");
-            wrapper.className = "media-box";
-
-            const img = document.createElement("img");
-            img.src = file;
-            img.alt = stage.name;
-
-            wrapper.appendChild(img);
-            imageRow.appendChild(wrapper);
-        });
-        mediaDiv.appendChild(imageRow);
-
-        const videoRow = document.createElement("div");
-        videoRow.className = "media-row";
-        videos.slice(0, 2).forEach(file => {
-            const wrapper = document.createElement("div");
-            wrapper.className = "media-box";
-
-            const video = document.createElement("video");
-            video.src = file;
-            video.controls = true;
-            video.loop = true;
-            video.muted = true;
-
-            wrapper.appendChild(video);
-            videoRow.appendChild(wrapper);
-        });
-        mediaDiv.appendChild(videoRow);
-
-        container.appendChild(mediaDiv);
-        container.appendChild(document.getElementById("favoriteBtn"));
+        updateFavButtons();
     }
 
+    // helper to build each row
+    function makeRow(files, isVid) {
+        const row = document.createElement("div");
+        row.className = "media-row";
+
+        files.slice(0,2).forEach(src => {
+            const box = document.createElement("div");
+            box.className = "media-box";
+
+            const el = isVid ? document.createElement("video") : document.createElement("img");
+            if (isVid) {
+                el.src = src;
+                el.controls = true;
+                el.loop = true;
+                el.muted = true;
+            } else {
+                el.src = src;
+                el.alt = "";
+            }
+            box.appendChild(el);
+
+            // *** favorite button stores an object ***
+            const btn = document.createElement("button");
+            btn.className = "add-fav-btn";
+            btn.textContent = "Add to Favorites";
+            btn.addEventListener("click", () => {
+                const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+                const item = {
+                    stageImg: src,
+                    stageName: stages[currentIndex].name,
+                    festivalName: "Desert Daze 2022"
+                };
+                if (!favs.some(f => f.stageImg === src)) {
+                    favs.push(item);
+                    localStorage.setItem("favorites", JSON.stringify(favs));
+                    alert("Added to favorites");
+                } else {
+                    alert("Already in your favorites");
+                }
+            });
+            box.appendChild(btn);
+
+            row.appendChild(box);
+        });
+
+        return row;
+    }
+
+    // show/hide those fav buttons
+    function updateFavButtons() {
+        const show = localStorage.getItem("loggedIn") === "true";
+        document.querySelectorAll(".add-fav-btn")
+            .forEach(b => b.style.display = show ? "inline-block" : "none");
+    }
+
+    // prev/next stage
     document.getElementById("prevBtn").addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            showStage(currentIndex);
-        }
+        if (currentIndex > 0) showStage(currentIndex - 1);
     });
-
     document.getElementById("nextBtn").addEventListener("click", () => {
-        if (currentIndex < stages.length - 1) {
-            currentIndex++;
-            showStage(currentIndex);
-        }
+        if (currentIndex < stages.length - 1) showStage(currentIndex + 1);
     });
 
-    document.querySelectorAll(".dayBtn").forEach(btn => {
+    // day buttons
+    document.querySelectorAll(".dayBtn").forEach(btn =>
         btn.addEventListener("click", () => {
-            document.querySelectorAll(".dayBtn").forEach(b => b.classList.remove("active"));
+            document.querySelectorAll(".dayBtn").forEach(x => x.classList.remove("active"));
             btn.classList.add("active");
-            setDay(btn.getAttribute("data-day"));
-        });
+            setDay(btn.dataset.day);
+        })
+    );
+
+    // LOGIN form
+    document.getElementById("login").addEventListener("submit", e => {
+        e.preventDefault();
+        setLoggedInState();
+        alert("Login successful!");
     });
 
-    document.getElementById("favoriteBtn").addEventListener("click", () => {
-        const stageName = document.getElementById("stageName").textContent;
-
-        let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-
-        if (!favorites.includes(stageName)) {
-            favorites.push(stageName);
-            localStorage.setItem("favorites", JSON.stringify(favorites));
-            alert(stageName + " added to favorites");
-        } else {
-            alert(stageName + " is already in your favorites");
-        }
+    // LOGOUT button
+    document.getElementById("logout").addEventListener("click", () => {
+        setLoggedOutState();
+        alert("Logged out");
     });
 
-    function updateFavoriteButtonVisibility() {
-        const favoriteBtn = document.getElementById("favoriteBtn");
-        if (localStorage.getItem("loggedIn") === "true") {
-            favoriteBtn.style.display = "inline-block";
-        } else {
-            favoriteBtn.style.display = "none";
-        }
+    // toggle profile UI
+    function setLoggedInState() {
+        localStorage.setItem("loggedIn", "true");
+        document.getElementById("login").style.display = "none";
+        document.getElementById("favLink").style.display = "block";
+        document.getElementById("logout").style.display = "inline-block";
+        updateFavButtons();
+    }
+    function setLoggedOutState() {
+        localStorage.removeItem("loggedIn");
+        document.getElementById("login").style.display = "block";
+        document.getElementById("favLink").style.display = "none";
+        document.getElementById("logout").style.display = "none";
+        updateFavButtons();
     }
 
-    function getPicturedText(stageName, day) {
-        const captions = {
+    // hard-coded “Pictured:” captions
+    function getCaption(stageName, day) {
+        const C = {
             "The Moon": {
-                "Friday": "Chicano Batman and King Gizzard",
-                "Saturday": "Tame Impala and Kikagaku Moyo",
-                "Sunday": "The Marías and Beach House"
+                Friday: "Chicano Batman and King Gizzard",
+                Saturday: "Tame Impala and Kikagaku Moyo",
+                Sunday: "The Marías and Beach House"
             },
             "The Block": {
-                "Friday": "Mild High Club and Panther Modern",
-                "Saturday": "Reggie Watts and Black Country, New Road",
-                "Sunday": "Pond, Levitation Room, and Fuzz"
+                Friday: "Mild High Club and Panther Modern",
+                Saturday: "Reggie Watts and Black Country, New Road",
+                Sunday: "Pond, Levitation Room, and Fuzz"
             },
             "The Beach": {
-                "Friday": "LA Witch and Duster",
-                "Saturday": "Soul Glo",
-                "Sunday": "DAKHABRAKHA, Working Men's Club, and Vanishing Twin"
+                Friday: "LA Witch and Duster",
+                Saturday: "Soul Glo",
+                Sunday: "DAKHABRAKHA, Working Men's Club, and Vanishing Twin"
             }
         };
-
-        return captions[stageName]?.[day] || "";
+        return (C[stageName] && C[stageName][day]) || "";
     }
 }
-
-document.addEventListener("DOMContentLoaded", getFestival);
-

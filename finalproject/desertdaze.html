@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Desert Daze 2022</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/stylesheet.css">
@@ -40,10 +40,8 @@
   <div class="dropdown">
     <button class="dropbtn">Profile</button>
     <div class="dropdown-content">
-      <a href="favorite.html">My favorites</a>
-      <div id="content">
-        <button id="logout">Logout</button>
-      </div>
+      <a href="favorite.html" id="favLink" style="display:none;">My favorites</a>
+      <button id="logout" style="display:none;">Logout</button>
       <form action="#" id="login">
         <div>
           <label for="username">Username</label>
@@ -63,26 +61,17 @@
 
 <h1 id="festivalName">Desert Daze 2022</h1>
 
-<!-- day selector row -->
 <div id="daySelector">
   <button class="dayBtn" data-day="Friday">Friday</button>
   <button class="dayBtn" data-day="Saturday">Saturday</button>
   <button class="dayBtn" data-day="Sunday">Sunday</button>
 </div>
 
-<!-- js doin it -->
-<div id="stageContainer">
-  <!-- dynamicccc -->
-</div>
+<div id="stageContainer"></div>
 
-<!-- buttons 4 stages -->
 <button id="prevBtn">Previous</button>
 <button id="nextBtn">Next</button>
 
-<!-- favorite button must exist for JS to reuse -->
-<button id="favoriteBtn">Add to Favorites</button>
-
-<!-- your festival-specific script -->
 <script src="js/desertdaze.js"></script>
 </body>
 </html>
