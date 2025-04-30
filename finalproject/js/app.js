@@ -6,9 +6,9 @@ console.log("is app running?")
 const loginFormRef = document.querySelector("#login");
 const logoutBtnRef = document.querySelector("#logout");
 const favoriteLinkRef = document.querySelector("a[href=\"favorite.html\"]");
-const favoriteBtnRef = document.querySelector(".favorite-btn");
+const favoriteBtnRef = document.querySelectorAll(".favorite-btn, .favoriteButton");
 
-//logged in state to meet localStorage requirement
+//set logged in state to meet localStorage requirement
 function setLoggedInState() {
     //no log in form if already logged in
     loginFormRef.style.display = "none";
@@ -17,6 +17,13 @@ function setLoggedInState() {
     favoriteBtnRef.forEach(btn => btn.style.display = "inline-block");
     localStorage.setItem("loggedIn", "true");
 }
+
+const flashMessage = localStorage.getItem("flashMessage");
+if (flashMessage) {
+    alert(flashMessage);
+    localStorage.removeItem("flashMessage");
+}
+
 //set logged out state, no favorites button, profile drop down only shows log in form.
 function setLoggedOutState() {
     //log in form since not logged in
@@ -30,22 +37,27 @@ function setLoggedOutState() {
 // if local storage logged in = true, set state as logged
 //in. if not, set as logged out state.
 if (localStorage.getItem("loggedIn") === "true") {
+    //e.preventDefault();
     setLoggedInState();
 } else {
     setLoggedOutState();
-
-    console.log(localStorage.getItem("loggedIn"));
 }
 
 // log in on submit form, log out on click log out. sets the states
 loginFormRef.addEventListener("submit", function (e) {
     e.preventDefault();
     setLoggedInState();
+    localStorage.setItem("flashMessage", "Successfully logged in!");
+    //resets, if logged out but no reset logout will be in the login form
+    location.reload();
 });
 
 // Handle logout
 logoutBtnRef.addEventListener("click", function () {
     setLoggedOutState();
+    window.location.href = "index.html"; // send user back to index
 });
+
+
 
 
