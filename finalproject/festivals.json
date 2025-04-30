@@ -160,42 +160,65 @@
       }
     ]
   },
-  {
-    "festival": "Camp Flog Gnaw 2014",
-    "stages": [
-      {
-        "name": "Main Stage",
-        "img": "image here"
-      },
-      {
-        "name": "Odd Future Stage",
-        "img": "image here"
-      }
-    ]
-  },
-  {
-    "festival": "Desert Daze 2022",
-    "stages": [
-      {
-        "name": "The Moon",
-        "img": "img/Tame_Impala_Eric_Tra_DD22-0560-1.jpg"
-      },
-      {
-        "name": "The Block",
-        "img": "image here"
-      },
-      {
-        "name": "The Beach",
-        "img": "image here"
-      },
-      {
-        "name": "The Sanctuary",
-        "img": "image here"
-      },
-      {
-        "name": "The Outer Space",
-        "img": "image here"
-      }
-    ]
-  }
+
+    {
+      "festival": "Camp Flog Gnaw 2014",
+      "stages": [
+        {
+          "name": "Main Stage",
+          "img": "image here"
+        },
+        {
+          "name": "Odd Future Stage",
+          "img": "image here"
+        }
+      ]
+    },
+    {
+      "festival": "Desert Daze 2022",
+      "stages": [
+        {
+          "name": "The Moon",
+          "days": [
+            { "day": "Friday", "img": "img/placeholder.jpg" },
+            { "day": "Saturday", "img": "img/placeholder.jpg" },
+            { "day": "Sunday", "img": "img/placeholder.jpg" }
+          ]
+        },
+        {
+          "name": "The Block",
+          "days": [
+            { "day": "Friday", "img": "img/placeholder.jpg" },
+            { "day": "Saturday", "img": "img/placeholder.jpg" },
+            { "day": "Sunday", "img": "img/placeholder.jpg" }
+          ]
+        },
+        {
+          "name": "The Beach",
+          "days": [
+            { "day": "Friday", "img": "img/placeholder.jpg" },
+            { "day": "Saturday", "img": "img/placeholder.jpg" },
+            { "day": "Sunday", "img": "img/placeholder.jpg" }
+          ]
+        },
+        {
+          "name": "The Sanctuary",
+          "days": [
+            { "day": "Friday", "img": "img/placeholder.jpg" },
+            { "day": "Saturday", "img": "img/placeholder.jpg" },
+            { "day": "Sunday", "img": "img/placeholder.jpg" }
+          ]
+        },
+        {
+          "name": "The Outer Space",
+          "days": [
+            { "day": "Friday", "img": "img/placeholder.jpg" },
+            { "day": "Saturday", "img": "img/placeholder.jpg" },
+            { "day": "Sunday", "img": "img/placeholder.jpg" }
+          ]
+        }
+      ]
+    }
 ]
+
+
