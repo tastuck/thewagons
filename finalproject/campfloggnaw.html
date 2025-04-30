@@ -2,21 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Desert Daze 2022</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Flog Gnaw 2014</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
+<nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Chandler</button>
+        <div class="dropdown-content">
+            <a href="lollapooloza.html">Lollapalooza</a>
+            <a href="dreamville.html">Dreamville</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Taniya</button>
+        <div class="dropdown-content">
+            <a href="desertdaze.html">Desert Daze</a>
+            <a href="campfloggnaw.html">Camp Flog Gnaw</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Julianna</button>
+        <div class="dropdown-content">
+            <a href="rio.html">Rock in Rio</a>
+            <a href="tomorrow.html">Tomorrowland</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Elizabeth</button>
+        <div class="dropdown-content">
+            <a href="coachella.html">Coachella</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Profile</button>
+        <div class="dropdown-content">
+            <a href="favorite.html" id="favLink" style="display:none;">My favorites</a>
+            <button id="logout" style="display:none;">Logout</button>
+            <form action="#" id="loginForm">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
 
 <h1 id="festivalName">Camp Flog Gnaw 2014</h1>
 
-<div id="stageContainer">
-    <h2 id="stageName">Stage Name</h2>
-    <img id="stageImg" src="img/placeholder.jpg">
-</div>
-
+<div id="stageContainer"></div>
+<button id="favoriteBtn" class="favorite-btn">Add to Favorites</button>
 <button id="prevBtn">Previous</button>
 <button id="nextBtn">Next</button>
 
 <script src="js/campfloggnaw.js"></script>
-
 </body>
 </html>

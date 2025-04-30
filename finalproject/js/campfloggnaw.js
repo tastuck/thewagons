@@ -1,54 +1,93 @@
-function getFestival()
-{
-    let stages = []; //empty array
-    let currentIndex= 0; //this will cycle through the stages
+let stages = [];
+let currentIndex = 0;
+const favoriteBtn = document.getElementById('favoriteBtn');
+const favLink = document.getElementById('favLink');
+const logoutBtn = document.getElementById('logout');
+const loginForm = document.getElementById('loginForm');
 
-    //get data from the json, which is serving as our api integration
-    fetch("festivals.json")
-        //this is the response handler. in phpstorm, there's a prompt that says Promise<Response>
-        .then(response => {
-            //is the response successful. was the file found. if it wasn't, there was a network error.
+function setLoggedInState() {
+    localStorage.setItem('loggedIn', 'true');
+    favLink.style.display = 'block';
+    logoutBtn.style.display = 'block';
+    loginForm.style.display = 'none';
+    updateFavoriteButton();
+}
 
-            if (!response.ok) throw new Error("Network error");
-            //return the response if it was successful in json. json converts response to something js can read
-            return response.json();
-        })//in phpstorm it says Promise<Successful> right here.
+function setLoggedOutState() {
+    localStorage.removeItem('loggedIn');
+    favLink.style.display = 'none';
+    logoutBtn.style.display = 'none';
+    loginForm.style.display = 'block';
+    favoriteBtn.style.display = 'none';
+}
 
-        //after fetch, then the stuff within the json can be worked with
+function isLoggedIn() {
+    return localStorage.getItem('loggedIn') === 'true';
+}
+
+function updateFavoriteButton() {
+    if (isLoggedIn()) {
+        favoriteBtn.style.display = 'inline-block';
+        // Here you could check if this stage is already favorited
+        favoriteBtn.textContent = 'Add to Favorites';
+    } else {
+        favoriteBtn.style.display = 'none';
+    }
+}
+
+loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    setLoggedInState();
+});
+
+logoutBtn.addEventListener('click', () => {
+    setLoggedOutState();
+});
+
+favoriteBtn.addEventListener('click', () => {
+    // toggle favorite state (you could persist per-stage favorites here)
+    favoriteBtn.textContent = favoriteBtn.textContent.includes('Add')
+        ? 'Remove from Favorites'
+        : 'Add to Favorites';
+});
+
+function getFestival() {
+    fetch('festivals.json')
+        .then(r => {
+            if (!r.ok) throw new Error('Network error');
+            return r.json();
+        })
         .then(data => {
-            //festivals is const. we have an array of festivals. .find loops through the array to find festival called festival.festivalName
-            const festival = data.find(f => f.festival === "Camp Flog Gnaw 2014");
-            //stage name is whats being displayed on the page. stage name is the element on the html we will use to display
-            //festival not found error message if the array returns desert daze = false
-            if (!festival) {
-                document.getElementById("stageName").textContent = "Festival not found";
+            const fest = data.find(f => f.festival === 'Camp Flog Gnaw 2014');
+            if (!fest) {
+                document.getElementById('festivalName').textContent = 'Festival not found';
                 return;
             }
-
-            stages = festival.stages; //show the stages of the selected festival
-            showStage(currentIndex); //we are in let currentIndex which is 0. it will display first stage
-        });
-
-
-    function showStage(i) {
-        const stage = stages[i];
-        document.getElementById("stageName").textContent = stage.name;
-        document.getElementById("stageImg").src = stage.img || "img/placeholder.jpg";
-    }
-
-    document.getElementById("prevBtn").addEventListener("click", () => {
-        if(currentIndex > 0) {
-            currentIndex--;
-            showStage(currentIndex);
-        }
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => {
-        if(currentIndex < stages.length - 1) {
-            currentIndex++;
-            showStage(currentIndex);
-        }
-    });
+            stages = fest.stages;
+            if (!isLoggedIn()) setLoggedOutState();
+            showStage();
+        })
+        .catch(console.error);
 }
+
+function showStage() {
+    const stage = stages[currentIndex];
+    const cont = document.getElementById('stageContainer');
+    cont.innerHTML = `
+    <h2>${stage.name}</h2>
+    ${stage.img.map(src => `<img src="${src}" alt="${stage.name}">`).join('')}
+  `;
+    updateFavoriteButton();
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentIndex > 0) currentIndex--;
+    showStage();
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentIndex < stages.length - 1) currentIndex++;
+    showStage();
+});
 
 getFestival();

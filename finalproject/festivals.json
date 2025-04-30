@@ -166,11 +166,11 @@
       "stages": [
         {
           "name": "Main Stage",
-          "img": "image here"
+          "img": ["img/earl2014.jpeg", "img/tyler14.jpeg"]
         },
         {
           "name": "Odd Future Stage",
-          "img": "image here"
+          "img": ["img/trasht2014.jpeg", "img/mac2014.jpeg"]
         }
       ]
     },
