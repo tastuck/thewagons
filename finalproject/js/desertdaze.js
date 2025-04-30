@@ -1,57 +1,111 @@
+function getFestival() {
+    let allStages = []; // holds all stages for all days
+    let stages = [];    // just the ones for the selected day
+    let currentIndex = 0; // this cycles through whichever stages you're currently viewing
 
-
-function getFestival()
-{
-    let stages = []; //empty array
-    let currentIndex= 0; //this will cycle through the stages
-
-    //get data from the json, which is serving as our api integration
+    // pull the data from the JSON file (basically our fake API)
     fetch("festivals.json")
-        //this is the response handler. in phpstorm, there's a prompt that says Promise<Response>
         .then(response => {
-            //is the response successful. was the file found. if it wasn't, there was a network error.
-
+            // if the file doesn't load or doesn't exist, this catches it
             if (!response.ok) throw new Error("Network error");
-            //return the response if it was successful in json. json converts response to something js can read
+            // convert the response to usable JSON data
             return response.json();
-        })//in phpstorm it says Promise<Successful> right here.
-
-//after fetch, then the stuff within the json can be worked with
+        })
         .then(data => {
-            //festivals is const. we have an array of festivals. .find loops through the array to find festival called festival.festivalName
+            // find the specific festival by name (Desert Daze 2022 in this case)
             const festival = data.find(f => f.festival === "Desert Daze 2022");
-            //stage name is whats being displayed on the page. stage name is the element on the html we will use to display
-            //festival not found error message if the array returns desert daze = false
             if (!festival) {
                 document.getElementById("stageName").textContent = "Festival not found";
                 return;
             }
 
-            stages = festival.stages; //show the stages of the selected festival
-            showStage(currentIndex); //we are in let currentIndex which is 0. it will display first stage
+            allStages = festival.stages; // store all the stages, regardless of day
+            setDay("Friday"); // default to Friday view on page load
+            document.querySelector('.dayBtn[data-day="Friday"]').classList.add("active"); // visually highlight Friday tab
+            updateFavoriteButtonVisibility(); // show/hide fav btn on load
         });
 
+    // function to show stages just for a specific day
+    function setDay(day) {
+        stages = allStages
+            .map(stage => {
+                const dayData = stage.days?.find(d => d.day === day);
+                if (!dayData) return null;
+                return {
+                    name: stage.name,
+                    img: dayData.img,
+                    day: dayData.day
+                };
+            })
+            .filter(Boolean);
 
-    function showStage(i) {
-            const stage = stages[i];
-            document.getElementById("stageName").textContent = stage.name;
-            document.getElementById("stageImg").src = stage.img || "img/placeholder.jpg";
+        currentIndex = 0; // reset to the beginning of that day's stages
+
+        // if we got results, show the first one. otherwise show an error msg + placeholder img
+        if (stages.length > 0) {
+            showStage(currentIndex);
+        } else {
+            document.getElementById("stageName").textContent = "No stages for " + day;
+            document.getElementById("stageImg").src = "img/placeholder.jpg";
         }
+    }
 
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            if(currentIndex > 0) {
-                currentIndex--;
-                showStage(currentIndex);
-            }
-        });
+    // display the stage name + image at the current index
+    function showStage(i) {
+        const stage = stages[i];
+        document.getElementById("stageName").textContent = stage.name;
+        document.getElementById("stageImg").src = stage.img || "img/placeholder.jpg";
+    }
 
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            if(currentIndex < stages.length - 1) {
-                currentIndex++;
-                showStage(currentIndex);
-            }
+    // cycle backward through the list of stages for the current day
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showStage(currentIndex);
+        }
+    });
+
+    // cycle forward through the list of stages for the current day
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        if (currentIndex < stages.length - 1) {
+            currentIndex++;
+            showStage(currentIndex);
+        }
+    });
+
+    // hook up the Friday/Saturday/Sunday buttons to change the data
+    document.querySelectorAll(".dayBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".dayBtn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            setDay(btn.getAttribute("data-day"));
         });
+    });
+
+    // when the favorite button is clicked
+    document.getElementById("favoriteBtn").addEventListener("click", () => {
+        const stageName = document.getElementById("stageName").textContent;
+
+        let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+        if (!favorites.includes(stageName)) {
+            favorites.push(stageName);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            alert(stageName + " added to favorites");
+        } else {
+            alert(stageName + " is already in your favorites");
+        }
+    });
+
+    // show or hide the favorite button depending on login status
+    function updateFavoriteButtonVisibility() {
+        const favoriteBtn = document.getElementById("favoriteBtn");
+        if (localStorage.getItem("loggedIn") === "true") {
+            favoriteBtn.style.display = "inline-block";
+        } else {
+            favoriteBtn.style.display = "none";
+        }
+    }
 }
 
-getFestival();
-
+document.addEventListener("DOMContentLoaded", getFestival);

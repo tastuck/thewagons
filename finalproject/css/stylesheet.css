@@ -1,0 +1,55 @@
+@font-face {
+    font-family: "Gothic";
+    src: url("../font/gothic.otf") format("opentype");
+}
+
+body {
+    font-family: "Gothic", serif;
+}
+
+#festivalName {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 120px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+#daySelector {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    padding: 10px 40px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.dayBtn,
+.dayBtn:hover,
+.dayBtn.active {
+    flex: 1;
+    text-align: center;
+    font-family: "Gothic", serif;
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+    font-size: 2rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+
+.dayBtn:hover,
+.dayBtn.active {
+    border-bottom: 3px solid #333;
+    font-weight: bold;
+}
+
+#stageName {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
