@@ -49,7 +49,88 @@ body {
 
 #stageName {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-top: 20px;
 }
+
+.media-section {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.media-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.media-box {
+    flex: 1 1 45%;
+    max-width: 45%;
+}
+
+.media-box img,
+.media-box video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stage-description {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin: 8px auto 20px;
+    max-width: 700px;
+}
+.stage-description {
+    text-align: center;
+    font-size: 2rem;
+    color: #000000;
+    margin: 8px auto 20px;
+    max-width: 700px;
+}
+
+nav {
+    z-index: 1000;
+}
+
+#festivalName {
+    z-index: 1;
+}
+/*important tells browser do no matter what*/
+#prevBtn,
+#nextBtn {
+    font-family: "Gothic", serif !important;
+    font-size: 2rem !important;
+    padding: 0.75rem 1.5rem !important;
+    cursor: pointer !important;
+}
+
+#stageContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+#stageContainer img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.favorite-btn {
+    display: none;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    font-family: "Gothic", serif;
+    cursor: pointer;
+}
+
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Desert Daze 2022</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/stylesheet.css">
@@ -21,7 +21,7 @@
     <button class="dropbtn">Taniya</button>
     <div class="dropdown-content">
       <a href="desertdaze.html">Desert Daze</a>
-      <a href="#">Camp Flog Gnaw</a>
+      <a href="campflognaw.html">Camp Flog Gnaw</a>
     </div>
   </div>
   <div class="dropdown">
@@ -40,11 +40,9 @@
   <div class="dropdown">
     <button class="dropbtn">Profile</button>
     <div class="dropdown-content">
-      <a href="favorite.html">My favorites</a>
-      <div id="content">
-        <button id="logout">Logout</button>
-      </div>
-      <form action="#" id="login">
+      <a href="favorite.html" id="favLink" style="display:none;">My favorites</a>
+      <button id="logout" style="display:none;">Logout</button>
+      <form id="login">
         <div>
           <label for="username">Username</label>
           <input type="text" name="username" id="username">
@@ -63,26 +61,19 @@
 
 <h1 id="festivalName">Desert Daze 2022</h1>
 
-<!-- day selector row for Desert Daze -->
 <div id="daySelector">
   <button class="dayBtn" data-day="Friday">Friday</button>
   <button class="dayBtn" data-day="Saturday">Saturday</button>
   <button class="dayBtn" data-day="Sunday">Sunday</button>
 </div>
 
-
-
-<div id="stageContainer">
-  <h2 id="stageName">Stage Name</h2>
-  <img id="stageImg" src="img/placeholder.jpg">
-  <button id="favoriteBtn">Add to Favorites</button>
-</div>
-
-<!-- nav buttons for cycling through stages -->
+<div id="stageContainer"></div>
 <button id="prevBtn">Previous</button>
 <button id="nextBtn">Next</button>
 
-<!-- desert daze JS logic -->
 <script src="js/desertdaze.js"></script>
 </body>
 </html>
+
+
+

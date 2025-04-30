@@ -166,59 +166,71 @@
       "stages": [
         {
           "name": "Main Stage",
-          "img": "image here"
+          "img": ["img/earl2014.jpeg", "img/tyler14.jpeg"]
         },
         {
           "name": "Odd Future Stage",
-          "img": "image here"
+          "img": ["img/trasht2014.jpeg", "img/mac2014.jpeg"]
         }
       ]
     },
-    {
-      "festival": "Desert Daze 2022",
-      "stages": [
-        {
-          "name": "The Moon",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Block",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Beach",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Sanctuary",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Outer Space",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        }
-      ]
-    }
-]
+  {
+    "festival": "Desert Daze 2022",
+    "stages": [
+      {
+        "name": "The Moon",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/chicanobatman.jpeg","img/kingizzdd.jpeg","img/desertdaze3.mp4", "img/desertdaze4.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/IMG_5623 2.jpeg", "img/IMG_5609 2.jpeg", "img/desertdazetameimpala.mp4", "img/desertdazekika.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/IMG_5646 2.jpeg","img/themaria.jpeg" ,"img/desertdaze9.mp4", "img/desertdaze1.mp4"]
+          }
+        ]
+      },
+      {
+        "name": "The Block",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/mildhighclub.jpeg", "img/harsher.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/reggiewatts.jpeg", "img/bchr.jpeg" ]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/pond2022.jpeg", "img/levroom.jpeg","img/fuzzdd.jpeg" ]
+          }
+        ]
+      },
+      {
+        "name": "The Beach",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/IMG_5542 2.jpeg", "img/lawitch.mp4", "img/dusterdd.jpeg"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/desertdaze5.mp4",  "img/soulgdd.jpeg", "img/glodd.jpeg" ]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/DAKHABRAKHA.jpeg", "img/workingmensclub.jpeg", "img/vanishingtwin.jpeg"]
+          }
+        ]
+      }
+
+        ]
+      }
+    ]
 
 
