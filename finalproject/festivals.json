@@ -199,15 +199,15 @@
         "days": [
           {
             "day": "Friday",
-            "media": ["img/mildhighclub.jpeg"]
+            "media": ["img/mildhighclub.jpeg", "img/harsher.mp4"]
           },
           {
             "day": "Saturday",
-            "media": ["img/reggiewatts.jpeg"]
+            "media": ["img/reggiewatts.jpeg", "img/bchr.jpeg" ]
           },
           {
             "day": "Sunday",
-            "media": ["img/pond2022.jpeg"]
+            "media": ["img/pond2022.jpeg", "img/levroom.jpeg","img/fuzzdd.jpeg" ]
           }
         ]
       },
@@ -216,53 +216,21 @@
         "days": [
           {
             "day": "Friday",
-            "media": ["img/beach_fri1.jpg", "img/beach_fri2.jpg", "img/beach_fri3.mp4"]
+            "media": ["img/IMG_5542 2.jpeg", "img/lawitch.mp4", "img/dusterdd.jpeg"]
           },
           {
             "day": "Saturday",
-            "media": ["img/beach_sat1.jpg", "img/beach_sat2.jpg", "img/beach_sat3.mp4"]
+            "media": ["img/desertdaze5.mp4",  "img/soulgdd.jpeg", "img/glodd.jpeg" ]
           },
           {
             "day": "Sunday",
-            "media": ["img/beach_sun1.jpg", "img/beach_sun2.jpg", "img/beach_sun3.mp4"]
-          }
-        ]
-      },
-      {
-        "name": "The Sanctuary",
-        "days": [
-          {
-            "day": "Friday",
-            "media": ["img/sanctuary_fri1.jpg", "img/sanctuary_fri2.jpg", "img/sanctuary_fri3.mp4"]
-          },
-          {
-            "day": "Saturday",
-            "media": ["img/sanctuary_sat1.jpg", "img/sanctuary_sat2.jpg", "img/sanctuary_sat3.mp4"]
-          },
-          {
-            "day": "Sunday",
-            "media": ["img/sanctuary_sun1.jpg", "img/sanctuary_sun2.jpg", "img/sanctuary_sun3.mp4"]
-          }
-        ]
-      },
-      {
-        "name": "The Outer Space",
-        "days": [
-          {
-            "day": "Friday",
-            "media": ["img/outerspace_fri1.jpg", "img/outerspace_fri2.jpg", "img/outerspace_fri3.mp4"]
-          },
-          {
-            "day": "Saturday",
-            "media": ["img/outerspace_sat1.jpg", "img/outerspace_sat2.jpg", "img/outerspace_sat3.mp4"]
-          },
-          {
-            "day": "Sunday",
-            "media": ["img/outerspace_sun1.jpg", "img/outerspace_sun2.jpg", "img/outerspace_sun3.mp4"]
+            "media": ["img/DAKHABRAKHA.jpeg", "img/workingmensclub.jpeg", "img/vanishingtwin.jpeg"]
           }
         ]
       }
+
+        ]
+      }
     ]
-  }
-  ]
+
 

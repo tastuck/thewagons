@@ -19,6 +19,13 @@ function getFestival() {
             setDay("Friday");
             document.querySelector('.dayBtn[data-day="Friday"]').classList.add("active");
             updateFavoriteButtonVisibility();
+
+            if (localStorage.getItem("loggedIn") === "true") {
+                setLoggedInState();
+            } else {
+                setLoggedOutState();
+            }
+
         });
 
     function setDay(day) {
@@ -29,7 +36,8 @@ function getFestival() {
                 return {
                     name: stage.name,
                     media: dayData.media || [],
-                    day: dayData.day
+                    day: dayData.day,
+                    pictured: getPicturedText(stage.name, dayData.day)
                 };
             })
             .filter(Boolean);
@@ -50,26 +58,51 @@ function getFestival() {
 
         container.innerHTML = `<h2 id="stageName">${stage.name}</h2>`;
 
-        const mediaDiv = document.createElement("div");
-        mediaDiv.className = "media-grid";
+        // insert "Pictured: ..." if available
+        if (stage.pictured) {
+            const desc = document.createElement("p");
+            desc.className = "stage-description";
+            desc.textContent = `Pictured: ${stage.pictured}`;
+            container.appendChild(desc);
+        }
 
-        stage.media.forEach(file => {
-            if (file.endsWith(".mp4")) {
-                const video = document.createElement("video");
-                video.src = file;
-                video.controls = true;
-                video.loop = true;
-                video.muted = true;
-                video.width = 300;
-                mediaDiv.appendChild(video);
-            } else {
-                const img = document.createElement("img");
-                img.src = file;
-                img.alt = stage.name;
-                img.width = 300;
-                mediaDiv.appendChild(img);
-            }
+        const mediaDiv = document.createElement("div");
+        mediaDiv.className = "media-section";
+
+        const images = stage.media.filter(file => !file.endsWith(".mp4"));
+        const videos = stage.media.filter(file => file.endsWith(".mp4"));
+
+        const imageRow = document.createElement("div");
+        imageRow.className = "media-row";
+        images.slice(0, 2).forEach(file => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "media-box";
+
+            const img = document.createElement("img");
+            img.src = file;
+            img.alt = stage.name;
+
+            wrapper.appendChild(img);
+            imageRow.appendChild(wrapper);
         });
+        mediaDiv.appendChild(imageRow);
+
+        const videoRow = document.createElement("div");
+        videoRow.className = "media-row";
+        videos.slice(0, 2).forEach(file => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "media-box";
+
+            const video = document.createElement("video");
+            video.src = file;
+            video.controls = true;
+            video.loop = true;
+            video.muted = true;
+
+            wrapper.appendChild(video);
+            videoRow.appendChild(wrapper);
+        });
+        mediaDiv.appendChild(videoRow);
 
         container.appendChild(mediaDiv);
         container.appendChild(document.getElementById("favoriteBtn"));
@@ -119,6 +152,29 @@ function getFestival() {
             favoriteBtn.style.display = "none";
         }
     }
+
+    function getPicturedText(stageName, day) {
+        const captions = {
+            "The Moon": {
+                "Friday": "Chicano Batman and King Gizzard",
+                "Saturday": "Tame Impala and Kikagaku Moyo",
+                "Sunday": "The Marías and Beach House"
+            },
+            "The Block": {
+                "Friday": "Mild High Club and Panther Modern",
+                "Saturday": "Reggie Watts and Black Country, New Road",
+                "Sunday": "Pond, Levitation Room, and Fuzz"
+            },
+            "The Beach": {
+                "Friday": "LA Witch and Duster",
+                "Saturday": "Soul Glo",
+                "Sunday": "DAKHABRAKHA, Working Men's Club, and Vanishing Twin"
+            }
+        };
+
+        return captions[stageName]?.[day] || "";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", getFestival);
+

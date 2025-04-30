@@ -53,3 +53,46 @@ body {
     margin-top: 20px;
 }
 
+.media-section {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.media-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.media-box {
+    flex: 1 1 45%;
+    max-width: 45%;
+}
+
+.media-box img,
+.media-box video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stage-description {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin: 8px auto 20px;
+    max-width: 700px;
+}
+.stage-description {
+    text-align: center;
+    font-size: 2rem;
+    color: #000000;
+    margin: 8px auto 20px;
+    max-width: 700px;
+}
