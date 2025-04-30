@@ -182,15 +182,15 @@
         "days": [
           {
             "day": "Friday",
-            "media": ["img/moon_fri1.jpg", "img/moon_fri2.jpg", "img/moon_fri3.mp4"]
+            "media": ["img/chicanobatman.jpeg","img/kingizzdd.jpeg","img/desertdaze3.mp4", "img/desertdaze4.mp4"]
           },
           {
             "day": "Saturday",
-            "media": ["img/IMG_5623 2.jpeg", "img/moon_sat2.jpg", "img/desertdazetameimpala.mp4", "img/desertdazekika.mp4"]
+            "media": ["img/IMG_5623 2.jpeg", "img/IMG_5609 2.jpeg", "img/desertdazetameimpala.mp4", "img/desertdazekika.mp4"]
           },
           {
             "day": "Sunday",
-            "media": ["img/moon_sun1.jpg", "img/moon_sun2.jpg", "img/moon_sun3.mp4"]
+            "media": ["img/IMG_5646 2.jpeg","img/themaria.jpeg" ,"img/desertdaze9.mp4", "img/desertdaze1.mp4"]
           }
         ]
       },
@@ -199,15 +199,15 @@
         "days": [
           {
             "day": "Friday",
-            "media": ["img/block_fri1.jpg", "img/block_fri2.jpg", "img/block_fri3.mp4"]
+            "media": ["img/mildhighclub.jpeg"]
           },
           {
             "day": "Saturday",
-            "media": ["img/block_sat1.jpg", "img/block_sat2.jpg", "img/block_sat3.mp4"]
+            "media": ["img/reggiewatts.jpeg"]
           },
           {
             "day": "Sunday",
-            "media": ["img/block_sun1.jpg", "img/block_sun2.jpg", "img/block_sun3.mp4"]
+            "media": ["img/pond2022.jpeg"]
           }
         ]
       },
