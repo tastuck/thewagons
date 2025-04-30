@@ -1,10 +1,16 @@
-.About{
+About{
     margin-top: 30px;
-    margin-left: 30px; }
+    margin-left: 30px;
+    text-align: center; }
 
-.Stages {
-        display: flex;
-        justify-content: center;
-        margin: 18px;
+Stages {
+    display: flex;
+    justify-content: center;
+    margin: 18px;
         font-size: 22px;
-        font-weight: bold; }
+        font-weight: bold;
+        text-align: center }
+Img {
+    height: 100%;
+    width: 100%;
+}
