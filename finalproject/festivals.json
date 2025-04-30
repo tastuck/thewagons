@@ -119,31 +119,31 @@
     "stages": [
       {
         "name": "Budlight Selzer",
-        "img": "image here"
+        "img": "lollapoolozaImages/budlightstage.jpg"
       },
       {
         "name": "Tito's Handmade Vodka",
-        "img": "image here"
+        "img": "lollapoolozaImages/titostage.jpg"
       },
       {
         "name": "Grove",
-        "img": "image here"
+        "img": "lollapoolozaImages/grovestage.jpg"
       },
       {
         "name": "BMI",
-        "img": "image here"
+        "img": "lollapoolozaImages/bmistage.jpg"
       },
       {
         "name": "Perry's",
-        "img": "image here"
+        "img": "lollapoolozaImages/perrys.jpg"
       },
       {
         "name": "Lakeshore",
-        "img": "image here"
+        "img": "lollapoolozaImages/lakeshorestage2.jpg"
       },
       {
         "name": "T-Mobile",
-        "img": "image here"
+        "img": "lollapoolozaImages/tmobilestage.jpg"
       }
     ]
   },
@@ -152,11 +152,11 @@
     "stages": [
       {
         "name": "Rise",
-        "img": "image here"
+        "img": "dreamvilleImages/risestage.jpg"
       },
       {
         "name": "Shine",
-        "img": "image here"
+        "img": "dreamvilleImages/shinetage.jpg"
       }
     ]
   },
