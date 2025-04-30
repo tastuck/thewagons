@@ -133,9 +133,4 @@ nav {
     cursor: pointer;
 }
 
-.stage-description {
-    display: inline-block;
-    max-width: 300px;
-    text-align: center;
-    margin: 0.5rem auto;
-}
+
