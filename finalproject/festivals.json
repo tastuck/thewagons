@@ -174,51 +174,95 @@
         }
       ]
     },
-    {
-      "festival": "Desert Daze 2022",
-      "stages": [
-        {
-          "name": "The Moon",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Block",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Beach",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Sanctuary",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        },
-        {
-          "name": "The Outer Space",
-          "days": [
-            { "day": "Friday", "img": "img/placeholder.jpg" },
-            { "day": "Saturday", "img": "img/placeholder.jpg" },
-            { "day": "Sunday", "img": "img/placeholder.jpg" }
-          ]
-        }
-      ]
-    }
-]
-
+  {
+    "festival": "Desert Daze 2022",
+    "stages": [
+      {
+        "name": "The Moon",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/moon_fri1.jpg", "img/moon_fri2.jpg", "img/moon_fri3.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/IMG_5623 2.jpeg", "img/moon_sat2.jpg", "img/desertdazetameimpala.mp4", "img/desertdazekika.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/moon_sun1.jpg", "img/moon_sun2.jpg", "img/moon_sun3.mp4"]
+          }
+        ]
+      },
+      {
+        "name": "The Block",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/block_fri1.jpg", "img/block_fri2.jpg", "img/block_fri3.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/block_sat1.jpg", "img/block_sat2.jpg", "img/block_sat3.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/block_sun1.jpg", "img/block_sun2.jpg", "img/block_sun3.mp4"]
+          }
+        ]
+      },
+      {
+        "name": "The Beach",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/beach_fri1.jpg", "img/beach_fri2.jpg", "img/beach_fri3.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/beach_sat1.jpg", "img/beach_sat2.jpg", "img/beach_sat3.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/beach_sun1.jpg", "img/beach_sun2.jpg", "img/beach_sun3.mp4"]
+          }
+        ]
+      },
+      {
+        "name": "The Sanctuary",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/sanctuary_fri1.jpg", "img/sanctuary_fri2.jpg", "img/sanctuary_fri3.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/sanctuary_sat1.jpg", "img/sanctuary_sat2.jpg", "img/sanctuary_sat3.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/sanctuary_sun1.jpg", "img/sanctuary_sun2.jpg", "img/sanctuary_sun3.mp4"]
+          }
+        ]
+      },
+      {
+        "name": "The Outer Space",
+        "days": [
+          {
+            "day": "Friday",
+            "media": ["img/outerspace_fri1.jpg", "img/outerspace_fri2.jpg", "img/outerspace_fri3.mp4"]
+          },
+          {
+            "day": "Saturday",
+            "media": ["img/outerspace_sat1.jpg", "img/outerspace_sat2.jpg", "img/outerspace_sat3.mp4"]
+          },
+          {
+            "day": "Sunday",
+            "media": ["img/outerspace_sun1.jpg", "img/outerspace_sun2.jpg", "img/outerspace_sun3.mp4"]
+          }
+        ]
+      }
+    ]
+  }
+  ]
 
