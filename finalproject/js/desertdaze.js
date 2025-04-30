@@ -1,5 +1,3 @@
-// js/desertdaze.js
-
 document.addEventListener("DOMContentLoaded", getFestival);
 
 function getFestival() {

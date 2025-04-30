@@ -1,93 +1,128 @@
-let stages = [];
-let currentIndex = 0;
-const favoriteBtn = document.getElementById('favoriteBtn');
-const favLink = document.getElementById('favLink');
-const logoutBtn = document.getElementById('logout');
-const loginForm = document.getElementById('loginForm');
-
-function setLoggedInState() {
-    localStorage.setItem('loggedIn', 'true');
-    favLink.style.display = 'block';
-    logoutBtn.style.display = 'block';
-    loginForm.style.display = 'none';
-    updateFavoriteButton();
-}
-
-function setLoggedOutState() {
-    localStorage.removeItem('loggedIn');
-    favLink.style.display = 'none';
-    logoutBtn.style.display = 'none';
-    loginForm.style.display = 'block';
-    favoriteBtn.style.display = 'none';
-}
-
-function isLoggedIn() {
-    return localStorage.getItem('loggedIn') === 'true';
-}
-
-function updateFavoriteButton() {
-    if (isLoggedIn()) {
-        favoriteBtn.style.display = 'inline-block';
-        // Here you could check if this stage is already favorited
-        favoriteBtn.textContent = 'Add to Favorites';
-    } else {
-        favoriteBtn.style.display = 'none';
-    }
-}
-
-loginForm.addEventListener('submit', e => {
-    e.preventDefault();
-    setLoggedInState();
-});
-
-logoutBtn.addEventListener('click', () => {
-    setLoggedOutState();
-});
-
-favoriteBtn.addEventListener('click', () => {
-    // toggle favorite state (you could persist per-stage favorites here)
-    favoriteBtn.textContent = favoriteBtn.textContent.includes('Add')
-        ? 'Remove from Favorites'
-        : 'Add to Favorites';
-});
+document.addEventListener("DOMContentLoaded", getFestival);
 
 function getFestival() {
-    fetch('festivals.json')
-        .then(r => {
-            if (!r.ok) throw new Error('Network error');
-            return r.json();
+    let allStages = [];
+    let currentIndex = 0;
+
+    fetch("festivals.json")
+        .then(resp => {
+            if (!resp.ok) throw new Error("Network error");
+            return resp.json();
         })
         .then(data => {
-            const fest = data.find(f => f.festival === 'Camp Flog Gnaw 2014');
+            const fest = data.find(f => f.festival === "Camp Flog Gnaw 2014");
             if (!fest) {
-                document.getElementById('festivalName').textContent = 'Festival not found';
+                document.getElementById("stageContainer").innerHTML =
+                    "<p>Festival not found</p>";
                 return;
             }
-            stages = fest.stages;
-            if (!isLoggedIn()) setLoggedOutState();
-            showStage();
+            allStages = fest.stages;
+            showStage(0);
+
+            if (localStorage.getItem("loggedIn") === "true") {
+                setLoggedInState();
+            } else {
+                setLoggedOutState();
+            }
         })
-        .catch(console.error);
+        .catch(err => {
+            console.error(err);
+            document.getElementById("stageContainer").innerHTML =
+                "<p>Error loading data</p>";
+        });
+
+    function showStage(idx) {
+        currentIndex = idx;
+        const s = allStages[idx];
+        const container = document.getElementById("stageContainer");
+        container.innerHTML = `<h2 id="stageName">${s.name}</h2>`;
+
+        // single-string caption—let CSS handle the wrapping exactly like Desert Daze
+        const desc = document.createElement("p");
+        desc.className = "stage-description";
+        desc.textContent = "Pictured: " + getCaption(s.name);
+        container.appendChild(desc);
+
+        const row = document.createElement("div");
+        row.className = "media-row";
+        s.img.slice(0, 2).forEach(src => {
+            const box = document.createElement("div");
+            box.className = "media-box";
+
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = s.name;
+            box.appendChild(img);
+
+            const btn = document.createElement("button");
+            btn.className = "add-fav-btn";
+            btn.textContent = "Add to Favorites";
+            btn.addEventListener("click", () => toggleFavorite(s.name, src, btn));
+            box.appendChild(btn);
+
+            row.appendChild(box);
+        });
+        container.appendChild(row);
+
+        updateFavButtons();
+    }
+
+    function getCaption(stageName) {
+        return {
+            "Main Stage": "Earl Sweatshirt & Tyler, The Creator",
+            "Odd Future Stage": "Trash Talk & Mac Miller"
+        }[stageName] || "";
+    }
+
+    function updateFavButtons() {
+        const show = localStorage.getItem("loggedIn") === "true";
+        document.querySelectorAll(".add-fav-btn")
+            .forEach(b => b.style.display = show ? "inline-block" : "none");
+    }
+
+    function toggleFavorite(stage, src, btn) {
+        let favs = JSON.parse(localStorage.getItem("favorites") || "[]");
+        const item = { stageImg: src, stageName: stage, festivalName: "Camp Flog Gnaw 2014" };
+        const exists = favs.some(f => f.stageImg === src);
+        if (!exists) {
+            favs.push(item);
+            btn.textContent = "Remove from Favorites";
+        } else {
+            favs = favs.filter(f => f.stageImg !== src);
+            btn.textContent = "Add to Favorites";
+        }
+        localStorage.setItem("favorites", JSON.stringify(favs));
+    }
+
+    function setLoggedInState() {
+        localStorage.setItem("loggedIn", "true");
+        document.getElementById("login").style.display = "none";
+        document.getElementById("favLink").style.display = "block";
+        document.getElementById("logout").style.display = "inline-block";
+        updateFavButtons();
+    }
+
+    function setLoggedOutState() {
+        localStorage.removeItem("loggedIn");
+        document.getElementById("login").style.display = "block";
+        document.getElementById("favLink").style.display = "none";
+        document.getElementById("logout").style.display = "none";
+        updateFavButtons();
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        if (currentIndex > 0) showStage(currentIndex - 1);
+    });
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        if (currentIndex < allStages.length - 1) showStage(currentIndex + 1);
+    });
+    document.getElementById("login").addEventListener("submit", e => {
+        e.preventDefault();
+        setLoggedInState();
+    });
+    document.getElementById("logout").addEventListener("click", () => {
+        setLoggedOutState();
+    });
 }
 
-function showStage() {
-    const stage = stages[currentIndex];
-    const cont = document.getElementById('stageContainer');
-    cont.innerHTML = `
-    <h2>${stage.name}</h2>
-    ${stage.img.map(src => `<img src="${src}" alt="${stage.name}">`).join('')}
-  `;
-    updateFavoriteButton();
-}
 
-document.getElementById('prevBtn').addEventListener('click', () => {
-    if (currentIndex > 0) currentIndex--;
-    showStage();
-});
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-    if (currentIndex < stages.length - 1) currentIndex++;
-    showStage();
-});
-
-getFestival();
