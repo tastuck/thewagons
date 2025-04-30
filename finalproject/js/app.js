@@ -15,7 +15,17 @@ function setLoggedInState() {
     logoutBtnRef.style.display = "block";
     favoriteLinkRef.style.display = "block";
     favoriteBtnRef.forEach(btn => btn.style.display = "inline-block");
-    localStorage.setItem("loggedIn", "true");
+    //localStorage.setItem("loggedIn", "true");
+
+    document.querySelectorAll("button").forEach(btn =>
+    {
+        if (btn.textContent.trim().toLowerCase() === "favorite") {
+        btn.style.display = "inline-block";
+    }
+});
+
+        localStorage.setItem("loggedIn", "true");
+
 }
 
 const flashMessage = localStorage.getItem("flashMessage");
@@ -31,6 +41,15 @@ function setLoggedOutState() {
     logoutBtnRef.style.display = "none";
     favoriteLinkRef.style.display = "none";
     favoriteBtnRef.forEach(btn => btn.style.display = "none");
+    //localStorage.setItem("loggedIn", "false");
+    //hide any button with text matching favorite when logged out. cant
+    //have favorites if you're not logged in logically
+    document.querySelectorAll("button").forEach(btn => {
+        if (btn.textContent.trim().toLowerCase() === "favorite") {
+            btn.style.display = "none";
+
+        }
+    });
     localStorage.setItem("loggedIn", "false");
 }
 
