@@ -1,20 +1,15 @@
-About{
-    margin-top: 30px;
-    margin-left: 30px;
-    text-align: center; }
-
-Stages {
-    display: flex;
-    justify-content: center;
-    margin: 18px;
-        font-size: 22px;
-        font-weight: bold;
-        text-align: center }
 Img {
-    height: 100%;
+    height: 600px;
     width: 100%;
 }
 
-h1,h2 {
+h1,h2{
     text-align: center;
+    padding: 25px;
+}
+
+p{
+    text-align: center;
+    font-family: sans-serif;
+    font-size:large;
 }
