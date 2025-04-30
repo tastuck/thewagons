@@ -10,7 +10,7 @@ function getFestival () {
         const stagesContainer = document.getElementById("stages");
 
         for(let i = 0; i < festival.stages.length; i++) {
-            const stage = festivals.stages[i];
+            const stage = festival.stages[i];
 
         const stageCard = document.createElement("div");
         stageCard.className = "stageCards";
@@ -59,7 +59,7 @@ function getFestival () {
 
         }
 
-        localStorage.setItem("favorites",JSON.stringify(favorites));
+        localStorage.setItem("favorites", JSON.stringify(favorites));
 
         });
         stageCard.appendChild(favoriteBtn);
