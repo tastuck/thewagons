@@ -1,6 +1,7 @@
 Img {
     height: 600px;
     width: 100%;
+    margin-top: 20px;
 }
 
 h1,h2{
@@ -14,24 +15,12 @@ p{
     font-size:large;
 }
 
-.stagesHeader {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
-.stagesContainer {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
 .stageCards {
-    border: 1px solid #000000;
     padding: 10px;
     text-align: center;
     width: 300px;
+    align-items: center;
+    border: 1px solid #000000;
 }
 
 .stageCards img {
@@ -44,3 +33,8 @@ p{
     padding: 5px 10px;
     cursor: pointer;
 }
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
