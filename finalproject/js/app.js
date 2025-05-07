@@ -80,6 +80,7 @@ logoutBtnRef.addEventListener("click", function () {
 
 function showFavorites() {
   let favoritesBox = document.getElementById("favoritesDisplay");
+  if(!favoritesBox) return null;
   let savedFavorites = localStorage.getItem("favorites");
 
   console.log("favoritesBox:", favoritesBox);
