@@ -1,9 +1,14 @@
+logic is important! if you hard code the favorites, then
+logged in and logged out has to be two seperate files/
+have logic to handle that. i just suppressed entirely
+
+
 --had to manually silence all variations of the word favorite
 suppress favorites
 restructure log in logic
 >> can not see favorites button before logged in
->>if logged in shouldnt see log in
->>if logged out shouldnt be able to add to favorites
+>>if logged in shouldn't see log in
+>>if logged out shouldn't be able to add to favorites
 >>once logged out session has to be cleared so everything goes away
 >>make sure no button is showing at times when it logically shouldnt
 

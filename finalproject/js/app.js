@@ -1,7 +1,5 @@
 console.log("is app running?")
 
-
-
 // Reference variables
 const loginFormRef = document.querySelector("#login");
 const logoutBtnRef = document.querySelector("#logout");
